@@ -10,6 +10,7 @@ php7 \
 php7-fpm \
 php7-pdo \
 php7-pdo_mysql \
+php7-pgsql \
 php7-mcrypt \
 php7-mbstring \
 php7-xml \
@@ -20,6 +21,7 @@ php7-zip \
 php7-dom \
 php7-session \
 php7-zlib \
+php7-xmlwriter \
 php7-tokenizer && \
 php7 -r "copy('http://getcomposer.org/installer', 'composer-setup.php');" && \
 php7 composer-setup.php --install-dir=/usr/bin --filename=composer && \

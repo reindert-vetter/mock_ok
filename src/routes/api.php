@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,5 +13,7 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::get('/', [\App\Domains\Collect\Controllers\Collector::class, 'get']);
+Route::get('/test', function (Request $request) {
+    return json_encode([1 => 'test1']);
+});
+Route::any('/dev/{all}', [\App\Domains\Collect\Controllers\CollectorController::class, 'handle'])->where('all', '.*');
