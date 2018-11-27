@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/test', function (Request $request) {
-    return json_encode([1 => 'test1']);
-});
-Route::any('/dev/{all}', [\App\Domains\Collect\Controllers\CollectorController::class, 'handle'])->where('all', '.*');
+//Route::get('/test', function (Request $request) {
+//    return json_encode([1 => 'test1']);
+//});
+Route::any('/{all}', [\App\Domains\Collect\Controllers\CollectorController::class, 'handle'])->where('all', '.*');

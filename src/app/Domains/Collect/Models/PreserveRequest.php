@@ -34,10 +34,11 @@ class PreserveRequest extends Model
 
     public function __construct(array $attributes = [])
     {
-        $this->headers = $this->normalizeHeaders($attributes['headers']);
-        $this->uri     = $this->removeTwinsHost($attributes['uri']);
-        unset($attributes['headers'], $attributes['uri']);
-
+        if (! empty($attributes)) {
+            $this->headers = $this->normalizeHeaders(collect($attributes['headers']));
+            $this->uri     = $this->removeTwinsHost($attributes['uri']);
+            unset($attributes['headers'], $attributes['uri']);
+        }
         parent::__construct($attributes);
     }
 
@@ -52,7 +53,8 @@ class PreserveRequest extends Model
      */
     private function removeTwinsHost($subject): string
     {
-        return str_replace_first('.localhost/dev', '', $subject);
+        $subject = str_replace_first('.localhost/dev', '', $subject);
+        return str_replace_first('.localhost', '', $subject);
     }
 
     /**
