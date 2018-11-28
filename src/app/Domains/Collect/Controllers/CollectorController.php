@@ -40,11 +40,11 @@ class CollectorController
         ]);
 
         $response->save();
-        
+
         return new ConsumerResponse(
-            $clientResponse->getBody(),
-            $clientResponse->getStatusCode(),
-            $clientResponse->getHeaders()
+            $response->body,
+            $response->status,
+            $response->headers
         );
     }
 }

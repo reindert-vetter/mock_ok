@@ -25,7 +25,6 @@ class RequestProvider
             'headers' => $request->headers,
             'query' => $request->query,
             'timeout' => 3,
-            RequestOptions::SYNCHRONOUS => true,
         ];
 
         $result = $client->request($request->method, $request->uri, $options);

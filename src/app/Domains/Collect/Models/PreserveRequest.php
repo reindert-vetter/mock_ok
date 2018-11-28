@@ -68,6 +68,10 @@ class PreserveRequest extends Model
             return $item[0];
         });
 
+        if ("" === $headers['content-length']) {
+            unset($headers['content-length']);
+        }
+
         // Remove twins in host header
         $headers->put('host', $this->removeTwinsHost($headers->get('host')));
 
