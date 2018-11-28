@@ -5,16 +5,35 @@ declare(strict_types=1);
 namespace App\Domains\Collect\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Collection;
 
 /**
- * @property string         method
- * @property string         uri
- * @property array          query
- * @property string         body
- * @property array          headers
- * @property string         hash
- * @property PreserveResult result
+ * App\Domains\Collect\Models\PreserveRequest
+ *
+ * @property string                          $method
+ * @property string                          $uri
+ * @property array                           $query
+ * @property string                          $body
+ * @property array                           $headers
+ * @property int                             $id
+ * @property int|null                        $preserve_response_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Domains\Collect\Models\PreserveResponse|null $preserveResponse
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Domains\Collect\Models\PreserveRequest newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Domains\Collect\Models\PreserveRequest newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Domains\Collect\Models\PreserveRequest query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Domains\Collect\Models\PreserveRequest whereBody($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Domains\Collect\Models\PreserveRequest whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Domains\Collect\Models\PreserveRequest whereHeaders($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Domains\Collect\Models\PreserveRequest whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Domains\Collect\Models\PreserveRequest whereMethod($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Domains\Collect\Models\PreserveRequest wherePreserveResponseId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Domains\Collect\Models\PreserveRequest whereQuery($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Domains\Collect\Models\PreserveRequest whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Domains\Collect\Models\PreserveRequest whereUri($value)
+ * @mixin \Eloquent
  */
 class PreserveRequest extends Model
 {
@@ -36,22 +55,25 @@ class PreserveRequest extends Model
     {
         if (! empty($attributes)) {
             $this->headers = $this->normalizeHeaders(collect($attributes['headers']));
-            $this->uri     = $this->removeTwinsHost($attributes['uri']);
+            $this->uri     = PreserveRequest::removeTwinsHost($attributes['uri']);
             unset($attributes['headers'], $attributes['uri']);
         }
         parent::__construct($attributes);
     }
 
-    public function result()
+    /**
+     * @return BelongsTo
+     */
+    public function preserveResponse(): BelongsTo
     {
-        return $this->hasOne(PreserveResult::class);
+        return $this->belongsTo(PreserveResponse::class);
     }
 
     /**
      * @param $subject
      * @return string
      */
-    private function removeTwinsHost($subject): string
+    public static function removeTwinsHost($subject): string
     {
         $subject = str_replace_first('.localhost/dev', '', $subject);
         return str_replace_first('.localhost', '', $subject);
@@ -73,7 +95,7 @@ class PreserveRequest extends Model
         }
 
         // Remove twins in host header
-        $headers->put('host', $this->removeTwinsHost($headers->get('host')));
+        $headers->put('host', PreserveRequest::removeTwinsHost($headers->get('host')));
 
         return $headers->toArray();
     }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePreserveResultsTable extends Migration
+class CreatePreserveResponsesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePreserveResultsTable extends Migration
      */
     public function up()
     {
-        Schema::create('preserve_results', function (Blueprint $table) {
+        Schema::create('preserve_responses', function (Blueprint $table) {
             $table->increments('id');
             $table->longText('body')->nullable();
-            $table->string('status');
+            $table->integer('status');
             $table->text('headers');
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class CreatePreserveResultsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('preserve_results');
+        Schema::dropIfExists('preserve_responses');
     }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Domains\Collect\Controllers;
 
 use App\Domains\Collect\Models\PreserveRequest;
-use App\Domains\Collect\Models\PreserveResult;
+use App\Domains\Collect\Models\PreserveResponse;
 use App\Domains\Collect\Providers\RequestProvider;
 use Illuminate\Http\Request as ConsumerRequest;
 use Illuminate\Http\Response as ConsumerResponse;
@@ -22,7 +22,20 @@ class CollectorController
      */
     public function handle(ConsumerRequest $consumerRequest, RequestProvider $requestProvider)
     {
-        PreserveRequest::all();
+
+        $request = PreserveRequest::where([
+            'method' => $consumerRequest->method(),
+            'uri'    => PreserveRequest::removeTwinsHost($consumerRequest->getUri()),
+        ])->first();
+
+        if (null !== $request) {
+            return new ConsumerResponse(
+                $request->preserveResponse->body,
+                $request->preserveResponse->status,
+                $request->preserveResponse->headers
+            );
+        }
+
         $request = new PreserveRequest([
             'method'  => $consumerRequest->method(),
             'uri'     => $consumerRequest->getUri(),
@@ -30,21 +43,21 @@ class CollectorController
             'body'    => $consumerRequest->getContent(),
             'headers' => $consumerRequest->headers->all(),
         ]);
+
         $clientResponse = $requestProvider->handle($request);
 
-        $response = new PreserveResult([
-            'body'    => (string) $clientResponse->getBody(),
+        $reserveResponse = new PreserveResponse([
+            'body'    => (string)$clientResponse->getBody(),
             'status'  => $clientResponse->getStatusCode(),
             'headers' => $clientResponse->getHeaders(),
-            'request' => $request,
         ]);
-
-        $response->save();
+        $reserveResponse->save();
+        $request->preserveResponse()->associate($reserveResponse)->save();
 
         return new ConsumerResponse(
-            $response->body,
-            $response->status,
-            $response->headers
+            $reserveResponse->body,
+            $reserveResponse->status,
+            $reserveResponse->headers
         );
     }
 }

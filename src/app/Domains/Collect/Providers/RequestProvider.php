@@ -6,7 +6,6 @@ namespace App\Domains\Collect\Providers;
 
 use App\Domains\Collect\Models\PreserveRequest;
 use GuzzleHttp\Client;
-use GuzzleHttp\RequestOptions;
 
 /**
  * @author Reindert Vetter

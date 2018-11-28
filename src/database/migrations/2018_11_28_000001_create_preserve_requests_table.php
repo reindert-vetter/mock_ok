@@ -15,15 +15,16 @@ class CreatePreserveRequestsTable extends Migration
     {
         Schema::create('preserve_requests', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('preserve_results_id')->index();
+            $table->integer('preserve_response_id')->nullable()->index();
             $table->string('method')->index();
             $table->string('uri')->index();
             $table->string('query');
             $table->longText('body');
             $table->text('headers');
-            $table->string('hash');
             $table->timestamps();
-            $table->foreign('preserve_results_id')->references('id')->on('preserve_results');
+            $table->foreign('preserve_response_id')
+                  ->references('id')
+                  ->on('preserve_responses');
         });
     }
 
