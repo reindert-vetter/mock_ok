@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domains\Collect\Models;
 
+use App\Domains\Collect\Helpers\RequestHelper;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Collection;
@@ -54,8 +55,8 @@ class PreserveRequest extends Model
     public function __construct(array $attributes = [])
     {
         if (! empty($attributes)) {
-            $this->headers = $this->normalizeHeaders(collect($attributes['headers']));
-            $this->uri     = PreserveRequest::removeTwinsHost($attributes['uri']);
+            $this->headers = RequestHelper::normalizeHeaders(collect($attributes['headers']));
+            $this->uri     = RequestHelper::removeTwinsHost($attributes['uri']);
             unset($attributes['headers'], $attributes['uri']);
         }
         parent::__construct($attributes);
@@ -67,36 +68,5 @@ class PreserveRequest extends Model
     public function preserveResponse(): BelongsTo
     {
         return $this->belongsTo(PreserveResponse::class);
-    }
-
-    /**
-     * @param $subject
-     * @return string
-     */
-    public static function removeTwinsHost($subject): string
-    {
-        $subject = str_replace_first('.localhost/dev', '', $subject);
-        return str_replace_first('.localhost', '', $subject);
-    }
-
-    /**
-     * @param Collection $headers
-     * @return array
-     */
-    private function normalizeHeaders(Collection $headers): array
-    {
-        // Normalize multidimensional array
-        $headers->transform(function ($item) {
-            return $item[0];
-        });
-
-        if ("" === $headers['content-length']) {
-            unset($headers['content-length']);
-        }
-
-        // Remove twins in host header
-        $headers->put('host', PreserveRequest::removeTwinsHost($headers->get('host')));
-
-        return $headers->toArray();
     }
 }

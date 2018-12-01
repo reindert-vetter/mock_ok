@@ -12,6 +12,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/justinrainbow/json-schema" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/seld/jsonlint" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/seld/phar-utils" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/contracts" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/filesystem" />
     </content>
     <orderEntry type="inheritedJdk" />

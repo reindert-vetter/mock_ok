@@ -14,8 +14,11 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/');
-        dd($response);
+        $response = $this->withHeaders([
+            'X-Header' => 'Value',
+        ])->json('POST', '/test', ['name' => 'Sally']);
+
+//        dd((string)$response->content());
 
         $response->assertStatus(200);
     }

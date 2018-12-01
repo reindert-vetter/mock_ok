@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Domains\Collect\Controllers;
 
+use App\Domains\Collect\Helpers\RequestHelper;
 use App\Domains\Collect\Models\PreserveRequest;
 use App\Domains\Collect\Models\PreserveResponse;
 use App\Domains\Collect\Providers\RequestProvider;
@@ -22,10 +23,9 @@ class CollectorController
      */
     public function handle(ConsumerRequest $consumerRequest, RequestProvider $requestProvider)
     {
-
         $request = PreserveRequest::where([
             'method' => $consumerRequest->method(),
-            'uri'    => PreserveRequest::removeTwinsHost($consumerRequest->getUri()),
+            'uri'    => RequestHelper::removeTwinsHost($consumerRequest->getUri()),
         ])->first();
 
         if (null !== $request) {
@@ -47,7 +47,7 @@ class CollectorController
         $clientResponse = $requestProvider->handle($request);
 
         $reserveResponse = new PreserveResponse([
-            'body'    => (string)$clientResponse->getBody(),
+            'body'    => (string)$clientResponse->getBody()->getContents(),
             'status'  => $clientResponse->getStatusCode(),
             'headers' => $clientResponse->getHeaders(),
         ]);
