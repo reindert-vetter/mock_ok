@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Console\Commands\TwinsAction;
+use App\Console\Commands\TwinsList;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,8 +15,30 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        TwinsAction::class
     ];
+
+
+    protected function getArtisan()
+    {
+        if (is_null($this->artisan)) {
+            $this->artisan = parent::getArtisan();
+
+            // Make our modifications here.
+
+            // Rename the console application.
+            $this->artisan->setName('Twins');
+
+            // Change the version number.
+            $this->artisan->setVersion('1.0.0');
+
+            // Change the default command.
+//            $this->artisan->setDefaultCommand('preserve:list');
+
+        }
+
+        return $this->artisan;
+    }
 
     /**
      * Define the application's command schedule.

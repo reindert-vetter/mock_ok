@@ -55,7 +55,7 @@ class PreserveRequest extends Model
     public function __construct(array $attributes = [])
     {
         if (! empty($attributes)) {
-            $this->headers = RequestHelper::normalizeHeaders(collect($attributes['headers']));
+            $this->headers = RequestHelper::normalizeHeaders(collect($attributes['headers']), $attributes['uri']);
             $this->uri     = RequestHelper::removeTwinsHost($attributes['uri']);
             unset($attributes['headers'], $attributes['uri']);
         }

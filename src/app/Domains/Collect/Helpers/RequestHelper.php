@@ -11,9 +11,10 @@ class RequestHelper
 
     /**
      * @param Collection $headers
+     * @param string     $url
      * @return array
      */
-    public static function normalizeHeaders(Collection $headers): array
+    public static function normalizeHeaders(Collection $headers, string $url): array
     {
         // Normalize multidimensional array
         $headers->transform(function ($item) {
@@ -25,7 +26,14 @@ class RequestHelper
         }
 
         // Remove twins in host header
-        $headers->put('host', RequestHelper::removeTwinsHost($headers->get('host')));
+        $host = RequestHelper::removeTwinsHost($headers->get('host'));
+        if ($host == '') {
+            $url  = RequestHelper::removeTwinsHost($url);
+            $url = str_replace_first('https://', '', $url);
+            $url = str_replace_first('http://', '', $url);
+            $host = strtok($url, '/');
+        }
+        $headers->put('host', RequestHelper::removeTwinsHost($host));
 
         return $headers->toArray();
     }
@@ -36,6 +44,9 @@ class RequestHelper
      */
     public static function removeTwinsHost($subject): string
     {
+        $subject = str_replace_first('127.0.0.1/', '', $subject);
+        $subject = str_replace_first('127.0.0.1:80', '', $subject);
+        $subject = str_replace_first('localhost/', '', $subject);
         return str_replace_first('.localhost', '', $subject);
     }
 }

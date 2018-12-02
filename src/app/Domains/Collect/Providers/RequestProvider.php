@@ -19,7 +19,7 @@ class RequestProvider
      */
     public function handle(PreserveRequest $request): \Psr\Http\Message\ResponseInterface
     {
-        $client = new Client();
+        $client = new Client(["http_errors" => false]);
         $options = [
             'headers' => $request->headers,
             'query' => $request->query,

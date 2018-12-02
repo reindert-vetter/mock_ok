@@ -2,13 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db0d632f-a6c2-4478-875e-39e55bd4ad03" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Console/Commands/TwinsAction.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Console/Helpers/Menu.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Console/Helpers/Search.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Console/Helpers/SearchWithAction.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Console/Helpers/Table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laradock" beforeDir="false" afterPath="$PROJECT_DIR$/laradock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laradock/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/laradock/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Console/Commands/PreserveList.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Domains/Collect/Helpers/RequestHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Domains/Collect/Helpers/RequestHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Domains/Collect/Models/PreserveRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Domains/Collect/Models/PreserveRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Domains/Collect/Providers/RequestProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Domains/Collect/Providers/RequestProvider.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/src/composer.json</pharConfigPath>
@@ -85,26 +102,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/Domains/Collect/Controllers/CollectorController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="28" column="10" selection-start-line="25" selection-start-column="19" selection-end-line="28" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+            <state relative-caret-position="325">
+              <caret line="38" column="30" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Collection.php">
+        <entry file="file://$PROJECT_DIR$/src/app/Domains/Collect/Providers/RequestProvider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6525">
-              <caret line="435" column="25" selection-start-line="435" selection-start-column="25" selection-end-line="435" selection-end-column="25" />
+            <state relative-caret-position="420">
+              <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/Console/Helpers/SearchWithAction.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -112,17 +129,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/Domains/Collect/Models/PreserveRequest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="41" column="15" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="15" />
+            <state relative-caret-position="337">
+              <caret line="57" column="49" lean-forward="true" selection-start-line="57" selection-start-column="49" selection-end-line="57" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/Domains/Collect/Helpers/RequestHelper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="337">
+              <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/Domains/Collect/Models/PreserveResponse.php">
+        <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Support/helpers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+            <state relative-caret-position="204">
+              <caret line="936" column="13" selection-start-line="936" selection-start-column="13" selection-end-line="936" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -131,42 +157,49 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>/web.php</find>
-      <find>api.php</find>
-      <find>host</find>
-      <find>docre</find>
-      <find>send</find>
-      <find>if (Ps</find>
-      <find>Psr\Http\Message\ResponseInterface</find>
-      <find>&lt;reindert@myparcel.nl&gt;</find>
-      <find>multidim</find>
-      <find>composer</find>
-      <find>DB_CONNECTION</find>
-      <find>timezo</find>
-      <find>MYSQL_DATABASE</find>
-      <find>NO_AUTO_CREATE_USER</find>
-      <find>mysql</find>
-      <find>databa</find>
-      <find>db_</find>
-      <find>POSTGRES_USER</find>
-      <find>DATA_PATH_HOST</find>
-      <find>database</find>
-      <find>preserve_result_id</find>
-      <find>has</find>
       <find>find</find>
       <find>include_fluent</find>
       <find>result</find>
       <find>80</find>
       <find>mailc</find>
       <find>adminer</find>
+      <find>RequestException</find>
+      <find>resulted in a</find>
+      <find>provi</find>
+      <find>facades</find>
+      <find>artisan</find>
+      <find>autocompleterValues</find>
+      <find>max</find>
+      <find>limit</find>
+      <find>getAutocompleterValues</find>
+      <find>list</find>
+      <find>twins</find>
+      <find>$instance</find>
+      <find>12.</find>
+      <find>0.0.0</find>
+      <find>0.0.0.0</find>
+      <find>ng</find>
+      <find>frontend</find>
+      <find>ports:</find>
+      <find>DOCKER_REGISTRY_PORT</find>
+      <find>ENV_DOCKER_REGISTRY_HOST</find>
+      <find>DOCKER_WEBUI_REGISTRY_HOST</find>
+      <find>ngi</find>
+      <find>ngin</find>
+      <find>NGINX_HOST_HTTP_PORT</find>
     </findStrings>
     <replaceStrings>
       <replace />
+      <replace>$terminal</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/laradock/mysql/docker-entrypoint-initdb.d</dir>
-      <dir>$PROJECT_DIR$/laradock</dir>
       <dir>$PROJECT_DIR$/</dir>
+      <dir>$PROJECT_DIR$/src/vendor/guzzlehttp</dir>
+      <dir>$PROJECT_DIR$/src/</dir>
+      <dir>$PROJECT_DIR$/src/app/Console/Helpers</dir>
+      <dir>$PROJECT_DIR$/laradock</dir>
+      <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -175,31 +208,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/Domains/Mocker.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collector.php" />
-        <option value="$PROJECT_DIR$/src/app/Providers/RouteServiceProvider.php" />
-        <option value="$PROJECT_DIR$/src/vendor/symfony/http-foundation/Request.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Service/UrlConverter.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Controllers/Collector.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Service/Proxy.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Controllers/Collector.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Service/Proxy.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Service/UrlConverter.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Service/RequestConverter.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Service/IlluminateRequestProvider.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Provider/IlluminateRequestProvider.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Provider/RequestProvider.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Models/Results.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Models/Result.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Models/Request.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/src/routes/api.php" />
         <option value="$PROJECT_DIR$/src/routes/api.php" />
         <option value="$PROJECT_DIR$/src/config/database.php" />
-        <option value="$PROJECT_DIR$/laradock/.env" />
         <option value="$PROJECT_DIR$/laradock/postgres/docker-entrypoint-initdb.d/createdb.sh" />
         <option value="$PROJECT_DIR$/laradock/postgres/Dockerfile" />
         <option value="$PROJECT_DIR$/src/.env" />
@@ -213,19 +227,38 @@
         <option value="$PROJECT_DIR$/src/app/Domains/Collect/Models/PreserveResult.php" />
         <option value="$PROJECT_DIR$/src/composer.json" />
         <option value="$PROJECT_DIR$/src/config/ide-helper.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Providers/RequestProvider.php" />
         <option value="$PROJECT_DIR$/src/app/Domains/Collect/Models/PreserveResponse.php" />
         <option value="$PROJECT_DIR$/src/database/migrations/2018_11_28_000000_create_preserve_responses_table.php" />
         <option value="$PROJECT_DIR$/laradock/nginx/Dockerfile" />
         <option value="$PROJECT_DIR$/src/app/Domains/Collect/Services/RequestService.php" />
         <option value="$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Support/Collection.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Helpers/RequestHelper.php" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Controllers/CollectorController.php" />
         <option value="$PROJECT_DIR$/src/tests/Feature/ExampleTest.php" />
-        <option value="$PROJECT_DIR$/laradock/docker-compose.yml" />
-        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Models/PreserveRequest.php" />
-        <option value="$PROJECT_DIR$/src/app/Console/Commands/PreserveList.php" />
         <option value="$PROJECT_DIR$/src/.gitignore" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/twins" />
+        <option value="$PROJECT_DIR$/src/app/Providers/AppServiceProvider.php" />
+        <option value="$PROJECT_DIR$/src/config/app.php" />
+        <option value="$PROJECT_DIR$/src/app/Console/ArtisanServiceProviderOverride.php" />
+        <option value="$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Foundation/Providers/ArtisanServiceProvider.php" />
+        <option value="$PROJECT_DIR$/src/app/Console/Commands/PreserveList.php" />
+        <option value="$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php" />
+        <option value="$PROJECT_DIR$/src/app/Console/Commands/PreserveFind.php" />
+        <option value="$PROJECT_DIR$/src/app/Console/Commands/TwinsList.php" />
+        <option value="$PROJECT_DIR$/src/app/Console/Helpers/Table.php" />
+        <option value="$PROJECT_DIR$/src/app/Console/Commands/TwinsFind.php" />
+        <option value="$PROJECT_DIR$/src/app/Console/Kernel.php" />
+        <option value="$PROJECT_DIR$/src/app/Console/Helpers/Search.php" />
+        <option value="$PROJECT_DIR$/src/app/Console/Helpers/Menh.php" />
+        <option value="$PROJECT_DIR$/src/app/Console/Helpers/Menu.php" />
+        <option value="$PROJECT_DIR$/src/app/Console/Commands/TwinsAction.php" />
+        <option value="$PROJECT_DIR$/laradock/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/laradock/.env" />
+        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Controllers/CollectorController.php" />
+        <option value="$PROJECT_DIR$/src/app/Console/Helpers/Delete.php" />
+        <option value="$PROJECT_DIR$/src/app/Console/Helpers/SearchWithAction.php" />
+        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Providers/RequestProvider.php" />
+        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Models/PreserveRequest.php" />
+        <option value="$PROJECT_DIR$/src/app/Domains/Collect/Helpers/RequestHelper.php" />
       </list>
     </option>
   </component>
@@ -369,33 +402,16 @@
               <item name="twins" type="b2602c69:ProjectViewProjectNode" />
               <item name="twins" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Console" type="462c0819:PsiDirectoryNode" />
+              <item name="Helpers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="twins" type="b2602c69:ProjectViewProjectNode" />
               <item name="twins" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="Feature" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Providers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -414,15 +430,17 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/Console/Helpers" />
+      <recent name="$PROJECT_DIR$/src/app/Console/Commands" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/app/Domains/Collect/Services" />
+      <recent name="$PROJECT_DIR$/src/database/migrations" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/laradock/postgres" />
       <recent name="$PROJECT_DIR$/src/app/Domains/Collect/Controller" />
       <recent name="$PROJECT_DIR$/src/app/Domains/Collect" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/app/Domains/Collect/Services" />
-      <recent name="$PROJECT_DIR$/src/database/migrations" />
-      <recent name="$PROJECT_DIR$/src/app/Domains/Collect/Models" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -473,7 +491,7 @@
       <workItem from="1543499773907" duration="49000" />
       <workItem from="1543615975334" duration="528000" />
       <workItem from="1543679937894" duration="8797000" />
-      <workItem from="1543697804704" duration="791000" />
+      <workItem from="1543697804704" duration="16667000" />
     </task>
     <task id="LOCAL-00001" summary="2">
       <created>1543249645256</created>
@@ -517,7 +535,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543698452729</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="8">
+      <created>1543698660439</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1543698660439</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -553,7 +578,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58557000" />
+    <option name="totallyTimeSpent" value="74433000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
@@ -644,7 +669,8 @@
     <MESSAGE value="5" />
     <MESSAGE value="6" />
     <MESSAGE value="7" />
-    <option name="LAST_COMMIT_MESSAGE" value="7" />
+    <MESSAGE value="8" />
+    <option name="LAST_COMMIT_MESSAGE" value="8" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -658,276 +684,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/laradock/sync.sh">
+    <entry file="file://$PROJECT_DIR$/src/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="36" lean-forward="true" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laradock/docker-sync.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laradock/postgres/docker-entrypoint-initdb.d/init_gitlab_db.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="27" column="2" lean-forward="true" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laradock/postgres/docker-entrypoint-initdb.d/init_jupyterhub_db.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="26" column="7" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laradock/mssql/create_table.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="60" column="41" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ccb2c1a7-7f75-44aa-957f-a8a3a85d8b61/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laradock/postgres/createdb.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laradock/mssql/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="3" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laradock/postgres/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/migrations/2014_10_12_000000_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="640" column="23" selection-start-line="640" selection-start-column="23" selection-end-line="640" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Support/Fluent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Database/Schema/ColumnDefinition.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vendor/guzzlehttp/guzzle/src/Client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="127" column="20" selection-start-line="127" selection-start-column="20" selection-end-line="127" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://ccb2c1a7-7f75-44aa-957f-a8a3a85d8b61/database/default/schema/public/table/preserve_result" />
-    <entry file="das://ccb2c1a7-7f75-44aa-957f-a8a3a85d8b61/database/default/schema/public/table/preserve_request" />
-    <entry file="das://ccb2c1a7-7f75-44aa-957f-a8a3a85d8b61/database/default/schema/public/table/preserve_results" />
-    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasRelationships.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/migrations/2018_11_28_000001_create_preserve_requests_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="1047" column="20" selection-start-line="1047" selection-start-column="20" selection-end-line="1047" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vendor/symfony/http-foundation/Request.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="1009" column="20" selection-start-line="1009" selection-start-column="20" selection-end-line="1009" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laradock/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="296" column="8" selection-start-line="296" selection-start-column="8" selection-end-line="296" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laradock/nginx/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="53" lean-forward="true" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/ide-helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_ide_helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="14352" column="35" selection-start-line="14352" selection-start-column="35" selection-end-line="14352" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vendor/barryvdh/laravel-ide-helper/config/ide-helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vendor/guzzlehttp/psr7/src/Stream.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="91" column="13" lean-forward="true" selection-start-line="91" selection-start-column="13" selection-end-line="91" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vendor/psr/http-message/src/StreamInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2130">
-          <caret line="142" column="20" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/Domains/Collect/Providers/RequestProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/Domains/Collect/Services/RequestService.php" />
-    <entry file="file://$PROJECT_DIR$/laradock/docker-compose.sync.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laradock/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="55" column="50" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/Feature/ExampleTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/Domains/Collect/Helpers/RequestHelper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/Console/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://ccb2c1a7-7f75-44aa-957f-a8a3a85d8b61/database/default/schema/public/table/preserve_requests">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/migrations/2018_11_28_000000_create_preserve_responses_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Support/Collection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="1872" column="20" selection-start-line="1872" selection-start-column="20" selection-end-line="1872" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Collection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6525">
-          <caret line="435" column="25" selection-start-line="435" selection-start-column="25" selection-end-line="435" selection-end-column="25" />
+        <state relative-caret-position="150">
+          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -938,45 +698,346 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/Domains/Collect/Models/PreserveRequest.php">
+    <entry file="file://$PROJECT_DIR$/src/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="41" column="15" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="15" />
+        <state relative-caret-position="181">
+          <caret line="155" column="47" lean-forward="true" selection-start-line="155" selection-start-column="47" selection-end-line="155" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/Console/Commands/PreserveList.php">
+    <entry file="file://$PROJECT_DIR$/src/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+        <state relative-caret-position="-211">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/vendor/guzzlehttp/promises/src/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="139">
+          <caret line="91" column="9" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile">
+    <entry file="file://$PROJECT_DIR$/src/vendor/guzzlehttp/promises/src/RejectedPromise.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+        <state relative-caret-position="139">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/guzzlehttp/guzzle/src/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="61" column="20" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="149" column="36" selection-start-line="149" selection-start-column="36" selection-end-line="149" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Support/AggregateServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="46" column="58" selection-start-line="46" selection-start-column="58" selection-end-line="46" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/symfony/console/Output/ConsoleOutput.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/symfony/console/Input/ArgvInput.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="228" column="46" selection-start-line="228" selection-start-column="41" selection-end-line="228" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Support/ServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="42" column="37" lean-forward="true" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Auth/Passwords/PasswordResetServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="195" column="51" lean-forward="true" selection-start-line="195" selection-start-column="51" selection-end-line="195" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Foundation/Providers/ArtisanServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="90" column="48" lean-forward="true" selection-start-line="90" selection-start-column="48" selection-end-line="90" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Console/ArtisanServiceProviderOverride.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="56" lean-forward="true" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Support/Facades/Artisan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/twins">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="32" column="53" lean-forward="true" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Providers/AppServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Console/Application.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="146" column="59" lean-forward="true" selection-start-line="146" selection-start-column="59" selection-end-line="146" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/symfony/console/Helper/QuestionHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="126" column="41" lean-forward="true" selection-start-line="126" selection-start-column="41" selection-end-line="126" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Http/Concerns/InteractsWithInput.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="205" column="20" selection-start-line="205" selection-start-column="20" selection-end-line="205" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/symfony/console/Question/ChoiceQuestion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Collection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="24" column="34" lean-forward="true" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="152" column="49" lean-forward="true" selection-start-line="152" selection-start-column="49" selection-end-line="152" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Contracts/Console/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/symfony/console/Question/Question.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2745">
+          <caret line="190" column="20" selection-start-line="190" selection-start-column="20" selection-end-line="190" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/symfony/console/Style/SymfonyStyle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="283" column="20" selection-start-line="283" selection-start-column="20" selection-end-line="283" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/artisan">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="32" column="54" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Console/Commands/TwinsList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="769" column="37" selection-start-line="769" selection-start-column="32" selection-end-line="769" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="1879" column="20" selection-start-line="1879" selection-start-column="20" selection-end-line="1879" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Console/Helpers/Table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Console/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Console/Command.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="453" column="20" selection-start-line="453" selection-start-column="20" selection-end-line="453" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Console/Helpers/Menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Console/Commands/TwinsAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laradock/nginx/startup.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laradock/nginx/nginx.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="20" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laradock/nginx/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="20" lean-forward="true" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laradock/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="175" column="25" lean-forward="true" selection-start-line="175" selection-start-column="25" selection-end-line="175" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laradock/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="227" column="33" selection-start-line="227" selection-start-column="13" selection-end-line="227" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Console/Helpers/Search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="35" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Console/Helpers/Delete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Console/Helpers/SearchWithAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Domains/Collect/Providers/RequestProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/Domains/Collect/Controllers/CollectorController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="28" column="10" selection-start-line="25" selection-start-column="19" selection-end-line="28" selection-end-column="10" />
+        <state relative-caret-position="325">
+          <caret line="38" column="30" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/app/Domains/Collect/Models/PreserveRequest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        <state relative-caret-position="337">
+          <caret line="57" column="49" lean-forward="true" selection-start-line="57" selection-start-column="49" selection-end-line="57" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_0.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="1625" column="38" lean-forward="true" selection-start-line="1625" selection-start-column="38" selection-end-line="1625" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Support/helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="936" column="13" selection-start-line="936" selection-start-column="13" selection-end-line="936" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Domains/Collect/Helpers/RequestHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
         </state>
       </provider>
     </entry>
