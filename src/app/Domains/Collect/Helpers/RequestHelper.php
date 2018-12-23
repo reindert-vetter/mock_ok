@@ -27,7 +27,7 @@ class RequestHelper
 
         // Remove twins in host header
         $host = RequestHelper::removeTwinsHost($headers->get('host'));
-        if ($host == '') {
+        if ($host == '' || $host == 'localhost') {
             $url  = RequestHelper::removeTwinsHost($url);
             $url = str_replace_first('https://', '', $url);
             $url = str_replace_first('http://', '', $url);
@@ -44,9 +44,11 @@ class RequestHelper
      */
     public static function removeTwinsHost($subject): string
     {
-        $subject = str_replace_first('127.0.0.1/', '', $subject);
+        $subject = str_replace_first(':81', '', $subject);
+        $subject = str_replace_first('127.0.0.1', '', $subject);
+        $subject = str_replace_first('http://', 'https://', $subject);
         $subject = str_replace_first('127.0.0.1:80', '', $subject);
-        $subject = str_replace_first('localhost/', '', $subject);
+        $subject = str_replace_first('.localhost', '', $subject);
         return str_replace_first('.localhost', '', $subject);
     }
 }

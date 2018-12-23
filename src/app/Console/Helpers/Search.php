@@ -19,7 +19,11 @@ class Search
         $latestResult = PreserveRequest::with('preserveResponse')->orderBy('created_at')->limit(10)->get();
         Table::show($latestResult, $terminal);
 
-        $search = $terminal->ask('Give an id or search for items');
+        $search = $terminal->ask("Give an id or search for items (or 'refresh')");
+
+        if ($search === 'refresh') {
+            return self::search($terminal);
+        }
 
         if (is_numeric($search)) {
             return PreserveRequest::find($search);

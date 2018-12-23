@@ -27,6 +27,7 @@ class CollectorController
             'method' => $consumerRequest->method(),
             'uri'    => RequestHelper::removeTwinsHost($consumerRequest->getUri()),
         ])->first();
+//        'headers->accept' => $consumerRequest->header('accept', ''),
 
         if (null !== $request) {
             return new ConsumerResponse(

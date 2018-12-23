@@ -23,6 +23,7 @@ class RequestProvider
         $options = [
             'headers' => $request->headers,
             'query' => $request->query,
+            'body' => $request->body,
             'timeout' => 3,
         ];
 
