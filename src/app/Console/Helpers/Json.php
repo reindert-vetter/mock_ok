@@ -6,8 +6,11 @@ namespace App\Console\Helpers;
 
 class Json
 {
-
-    public static function prettyPrint($json)
+    /**
+     * @param string $json
+     * @return string
+     */
+    public static function prettyPrint(string $json): string
     {
         $result          = '';
         $level           = 0;
@@ -67,5 +70,14 @@ class Json
         }
 
         return $result;
+    }
+
+    /**
+     * @param string $string
+     * @return bool
+     */
+    public static function isJson(string $string): bool {
+        json_decode($string);
+        return (json_last_error() == JSON_ERROR_NONE);
     }
 }

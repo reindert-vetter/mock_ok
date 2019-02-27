@@ -4,18 +4,36 @@ declare(strict_types=1);
 
 namespace App\Domains\Collect\Helpers;
 
-use Illuminate\Support\Collection;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\HeaderBag;
 
 class RequestHelper
 {
+    public static function normalizeRequest(Request $request): Request
+    {
+        // Remove twins in host header
+        $host = RequestHelper::removeTwinsHost($request->headers->get('host'));
+        if ($host == '' || $host == 'localhost') {
+            $url  = RequestHelper::removeTwinsHost($request->url());
+            $url = str_replace_first('https://', '', $url);
+            $url = str_replace_first('http://', '', $url);
+            $host = strtok($url, '/');
+        }
+        $request->headers->set('host', $host);
 
+        // Set base url
+        $request->server->set('HTTP_HOST', RequestHelper::removeTwinsHost($request->url()));
+
+        return $request;
+    }
     /**
-     * @param Collection $headers
-     * @param string     $url
+     * @param Request $request
      * @return array
      */
-    public static function normalizeHeaders(Collection $headers, string $url): array
+    public static function normalizeHeaders(Request $request): array
     {
+        $headers = collect($request->headers);
+
         // Normalize multidimensional array
         $headers->transform(function ($item) {
             return $item[0];
@@ -24,16 +42,6 @@ class RequestHelper
         if ("" === $headers['content-length']) {
             unset($headers['content-length']);
         }
-
-        // Remove twins in host header
-        $host = RequestHelper::removeTwinsHost($headers->get('host'));
-        if ($host == '' || $host == 'localhost') {
-            $url  = RequestHelper::removeTwinsHost($url);
-            $url = str_replace_first('https://', '', $url);
-            $url = str_replace_first('http://', '', $url);
-            $host = strtok($url, '/');
-        }
-        $headers->put('host', RequestHelper::removeTwinsHost($host));
 
         return $headers->toArray();
     }

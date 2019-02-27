@@ -3,12 +3,16 @@ declare(strict_types=1);
 
 namespace App\Domains\Collect\Controllers;
 
+use App\Console\Helpers\Json;
 use App\Domains\Collect\Helpers\RequestHelper;
-use App\Domains\Collect\Models\PreserveRequest;
-use App\Domains\Collect\Models\PreserveResponse;
 use App\Domains\Collect\Providers\RequestProvider;
-use Illuminate\Http\Request as ConsumerRequest;
+use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response as ConsumerResponse;
+use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * @author Reindert Vetter
@@ -16,49 +20,141 @@ use Illuminate\Http\Response as ConsumerResponse;
 class CollectorController
 {
     /**
-     * @param ConsumerRequest $consumerRequest
+     * @param Request         $request
      * @param RequestProvider $requestProvider
-     * @return ConsumerResponse
+     * @return \Illuminate\Http\Response
      * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Throwable
      */
-    public function handle(ConsumerRequest $consumerRequest, RequestProvider $requestProvider)
+    public function handle(Request $request, RequestProvider $requestProvider): Response
     {
-        $request = PreserveRequest::where([
-            'method' => $consumerRequest->method(),
-            'uri'    => RequestHelper::removeTwinsHost($consumerRequest->getUri()),
-        ])->first();
-//        'headers->accept' => $consumerRequest->header('accept', ''),
+        $request = RequestHelper::normalizeRequest($request);
 
-        if (null !== $request) {
-            return new ConsumerResponse(
-                $request->preserveResponse->body,
-                $request->preserveResponse->status,
-                $request->preserveResponse->headers
-            );
+        if ($result = $this->tryExample($request)) {
+            return $result;
         }
 
-        $request = new PreserveRequest([
-            'method'  => $consumerRequest->method(),
-            'uri'     => $consumerRequest->getUri(),
-            'query'   => $consumerRequest->query->all(),
-            'body'    => $consumerRequest->getContent(),
-            'headers' => $consumerRequest->headers->all(),
-        ]);
+        $clientResponse = $requestProvider->handle(
+            $request->method(),
+            RequestHelper::removeTwinsHost($request->getUri()),
+            $request->query->all(),
+            $request->getContent(),
+            $request->headers->all()
+        );
 
-        $clientResponse = $requestProvider->handle($request);
-
-        $reserveResponse = new PreserveResponse([
-            'body'    => (string)$clientResponse->getBody()->getContents(),
-            'status'  => $clientResponse->getStatusCode(),
-            'headers' => $clientResponse->getHeaders(),
-        ]);
-        $reserveResponse->save();
-        $request->preserveResponse()->associate($reserveResponse)->save();
+        $this->saveExample($request, $clientResponse);
 
         return new ConsumerResponse(
-            $reserveResponse->body,
-            $reserveResponse->status,
-            $reserveResponse->headers
+            (string)$clientResponse->getBody(),
+            $clientResponse->getStatusCode(),
+            $clientResponse->getHeaders()
         );
+    }
+
+    /**
+     * @param \Illuminate\Http\Request            $consumerRequest
+     * @param \Psr\Http\Message\ResponseInterface $clientResponse
+     * @throws \Throwable
+     */
+    private function saveExample(Request $consumerRequest, ResponseInterface $clientResponse): void
+    {
+        $fileName = Str::slug(trim(str_replace(['.', '/', '?', '=', '&', 'https', 'http'], '-', $consumerRequest->fullUrl()), '-'));
+        $body     = (string)$clientResponse->getBody();
+        $langIde  = Json::isJson($body) ? 'JSON' : 'XML';
+
+        $url = $this->getRegexUrl($consumerRequest);
+
+        $with = [
+            "method"  => $consumerRequest->getMethod(),
+            "url"     => $url,
+            "status"  => $clientResponse->getStatusCode(),
+            "body"    => Json::prettyPrint($body),
+            "headers" => RequestHelper::normalizeHeaders($consumerRequest),
+        ];
+
+        $exampleInc = "<?php\n\n" . view('body-template')
+                ->with($with)
+                ->render();
+        $exampleInc = str_replace('LANG_IDE', "/** @lang $langIde */", $exampleInc);
+
+        if (file_exists(base_path() . "/examples/$fileName.inc")) {
+            throw new \Exception("Can't create example $fileName.inc already exist");
+        }
+
+        file_put_contents(base_path() . "/examples/$fileName.inc", $exampleInc);
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $consumerRequest
+     * @return \Illuminate\Http\Response
+     * @throws Exception
+     */
+    private function tryExample(Request $consumerRequest): ?Response
+    {
+        $examples = $this->getExamples();
+
+        $matchExamples = $examples->filter(function ($value) use ($consumerRequest) {
+            return call_user_func($value['when'], $consumerRequest);
+        });
+
+        if ($matchExamples->isEmpty()) {
+            return null;
+        }
+
+        if ($matchExamples->count() > 1) {
+            $pathExamples = str_replace('/var/www/examples/', '', $matchExamples->pluck('path')->implode(", \n"));
+            throw new Exception("Multiple examples have a match: \n" . $pathExamples);
+        }
+
+        $example = $matchExamples->first();
+
+        return new Response(
+            $example['response']['body'],
+            $example['response']['status'],
+            $example['response']['headers']
+        );
+    }
+
+    /**
+     * @param string $dir
+     * @param array  $results
+     * @return Collection
+     */
+    private function getExamples(string $dir = null, array &$results = []): Collection
+    {
+        if (null === $dir) {
+            $dir = base_path() . '/examples/';
+        }
+
+        $files = scandir($dir);
+
+        foreach ($files as $key => $value) {
+            $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
+
+            if (!is_dir($path)) {
+                if (false !== strpos($path, '.inc')) {
+                    $example         = require($path);
+                    $example['path'] = $path;
+                    $results[]       = $example;
+                }
+            } elseif ($value != "." && $value != "..") {
+                $this->getExamples($path, $results);
+            }
+        }
+
+        return collect($results);
+    }
+
+    /**
+     * @param Request $consumerRequest
+     * @return string
+     */
+    private function getRegexUrl(Request $consumerRequest): string
+    {
+        $url = $consumerRequest->fullUrl();
+        $url = RequestHelper::removeTwinsHost($url);
+
+        $regexUrl = preg_quote(html_entity_decode($url), '#');
+        return str_replace(['https\:', 'http\:'], 'https?\:', $regexUrl);
     }
 }

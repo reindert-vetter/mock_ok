@@ -3,9 +3,10 @@ declare(strict_types=1);
 
 namespace App\Domains\Collect\Providers;
 
-
-use App\Domains\Collect\Models\PreserveRequest;
+use App\Domains\Collect\Helpers\RequestHelper;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * @author Reindert Vetter
@@ -13,21 +14,31 @@ use GuzzleHttp\Client;
 class RequestProvider
 {
     /**
-     * @param PreserveRequest $request
-     * @return mixed|\Psr\Http\Message\ResponseInterface
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @param string $method
+     * @param string $url
+     * @param array  $query
+     * @param string $body
+     * @param array  $headers
+     * @return mixed|ResponseInterface
+     * @throws GuzzleException
      */
-    public function handle(PreserveRequest $request): \Psr\Http\Message\ResponseInterface
-    {
-        $client = new Client(["http_errors" => false]);
+    public function handle(
+        string $method,
+        string $url,
+        array $query,
+        string $body,
+        array $headers
+    ): ResponseInterface {
+        $client  = new Client(["http_errors" => false]);
         $options = [
-            'headers' => $request->headers,
-            'query' => $request->query,
-            'body' => $request->body,
+            'headers' => $headers,
+            'query'   => $query,
+            'body'    => $body,
             'timeout' => 3,
         ];
 
-        $result = $client->request($request->method, $request->uri, $options);
+
+        $result = $client->request($method, $url, $options);
 
         return $result;
     }
