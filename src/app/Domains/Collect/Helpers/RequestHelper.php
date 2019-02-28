@@ -57,6 +57,7 @@ class RequestHelper
         $subject = str_replace_first('http://', 'https://', $subject);
         $subject = str_replace_first('127.0.0.1:80', '', $subject);
         $subject = str_replace_first('.localhost', '', $subject);
+        $subject = str_replace_first('.twins.dev.myparcel.nl', '', $subject);
         return str_replace_first('.localhost', '', $subject);
     }
 }

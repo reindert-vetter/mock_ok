@@ -56,7 +56,7 @@ sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" \
 -e "s/^;clear_env = no$/clear_env = no/" \
 /etc/php7/php-fpm.d/www.conf
 
-EXPOSE 443 80
+EXPOSE 8010
 WORKDIR /var/www
 
 CMD ["/start.sh"]
