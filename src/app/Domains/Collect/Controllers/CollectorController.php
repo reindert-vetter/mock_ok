@@ -21,8 +21,8 @@ use Psr\Http\Message\ResponseInterface;
 class CollectorController
 {
     /**
-     * @param Request         $request
-     * @param RequestProvider $requestProvider
+     * @param  Request         $request
+     * @param  RequestProvider $requestProvider
      * @return \Illuminate\Http\Response
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Throwable
@@ -46,7 +46,7 @@ class CollectorController
         $this->saveExample($request, $clientResponse);
 
         $result = new ConsumerResponse(
-            (string)$clientResponse->getBody(),
+            (string) $clientResponse->getBody(),
             $clientResponse->getStatusCode(),
             $clientResponse->getHeaders()
         );
@@ -55,14 +55,16 @@ class CollectorController
     }
 
     /**
-     * @param \Illuminate\Http\Request            $consumerRequest
-     * @param \Psr\Http\Message\ResponseInterface $clientResponse
+     * @param  \Illuminate\Http\Request            $consumerRequest
+     * @param  \Psr\Http\Message\ResponseInterface $clientResponse
      * @throws \Throwable
      */
     private function saveExample(Request $consumerRequest, ResponseInterface $clientResponse): void
     {
-        $fileName = Str::slug(trim(str_replace(['.', '/', '?', '=', '&', 'https', 'http'], '-', $consumerRequest->fullUrl()), '-'));
-        $body     = (string)$clientResponse->getBody();
+        $fileName = Str::slug(
+            trim(str_replace(['.', '/', '?', '=', '&', 'https', 'http'], '-', $consumerRequest->fullUrl()), '-')
+        );
+        $body     = (string) $clientResponse->getBody();
         $langIde  = Json::isJson($body) ? 'JSON' : 'XML';
 
         $url = $this->getRegexUrl($consumerRequest);
@@ -72,7 +74,7 @@ class CollectorController
             "url"     => $url,
             "status"  => $clientResponse->getStatusCode(),
             "body"    => $body,
-//            "body"    => Json::prettyPrint($body),
+            //            "body"    => Json::prettyPrint($body),
             "headers" => ResponseHelper::normalizeHeaders($clientResponse->getHeaders(), strlen($body)),
         ];
 
@@ -89,7 +91,7 @@ class CollectorController
     }
 
     /**
-     * @param \Illuminate\Http\Request $consumerRequest
+     * @param  \Illuminate\Http\Request $consumerRequest
      * @return \Illuminate\Http\Response
      * @throws Exception
      */
@@ -97,9 +99,11 @@ class CollectorController
     {
         $examples = $this->getExamples();
 
-        $matchExamples = $examples->filter(function ($value) use ($consumerRequest) {
-            return call_user_func($value['when'], $consumerRequest);
-        });
+        $matchExamples = $examples->filter(
+            function ($value) use ($consumerRequest) {
+                return call_user_func($value['when'], $consumerRequest);
+            }
+        );
 
         if ($matchExamples->isEmpty()) {
             return null;
@@ -115,14 +119,15 @@ class CollectorController
         $response = new Response(
             $example['response']['body'],
             $example['response']['status'],
-            ResponseHelper::normalizeHeaders($example['response']['headers'], strlen($example['response']['body'])));
+            ResponseHelper::normalizeHeaders($example['response']['headers'], strlen($example['response']['body']))
+        );
 
         return $response->setContent($example['response']['body']);
     }
 
     /**
-     * @param string $dir
-     * @param array  $results
+     * @param  string $dir
+     * @param  array  $results
      * @return Collection
      */
     private function getExamples(string $dir = null, array &$results = []): Collection
@@ -136,7 +141,7 @@ class CollectorController
         foreach ($files as $key => $value) {
             $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
 
-            if (!is_dir($path)) {
+            if (! is_dir($path)) {
                 if (false !== strpos($path, '.inc')) {
                     $example         = require($path);
                     $example['path'] = $path;
@@ -151,7 +156,7 @@ class CollectorController
     }
 
     /**
-     * @param Request $consumerRequest
+     * @param  Request $consumerRequest
      * @return string
      */
     private function getRegexUrl(Request $consumerRequest): string
