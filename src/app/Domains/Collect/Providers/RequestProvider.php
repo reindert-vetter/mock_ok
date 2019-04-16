@@ -34,11 +34,14 @@ class RequestProvider
             'headers' => $headers,
             'query'   => $query,
             'body'    => $body,
-            'timeout' => 3,
+            'timeout' => 10,
         ];
 
-
-        $result = $client->request($method, $url, $options);
+        try {
+            $result = $client->request($method, $url, $options);
+        } catch (\Exception $exception) {
+            $result = new \GuzzleHttp\Psr7\Response(200, [], $exception->getMessage());
+        }
 
         return $result;
     }

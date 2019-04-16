@@ -12,6 +12,10 @@ class Json
      */
     public static function prettyPrint(string $json): string
     {
+        if (! self::isJson($json)) {
+            return $json;
+        }
+
         $result          = '';
         $level           = 0;
         $in_quotes       = false;

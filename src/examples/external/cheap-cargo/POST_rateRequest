@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<rates>
+    <status>ok</status>
+    <shipment>
+        <rate id="8b2f27ed200698252e6de17976af03eb">
+            <carrierCode>DEP</carrierCode>
+            <carrierName>DHL Europlus Pallet</carrierName>
+            <serviceLevel>Europlus Benelux pallet</serviceLevel>
+            <serviceTime>00:00</serviceTime>
+            <price>49.42</price>
+            <weight>999</weight>
+            <modality>road</modality>
+            <info>&lt;b&gt; Maximale afmetingen&lt;/b&gt;&lt;br /&gt;120cm x 100cm x 200cm (lxbxh)&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximaal
+                gewicht&lt;/b&gt;&lt;br /&gt;1000kg&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Afleverpogingen&lt;/b&gt;&lt;br /&gt;2&lt;br
+                /&gt;&lt;br /&gt;&lt;b&gt;Verzekering&lt;/b&gt;&lt;br /&gt;Zending is verzekerd volgens Algemene
+                Vervoers Condities (max vergoeding. &#x20AC; 3,40 p/kg)&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Extra services&lt;/b&gt;&lt;br
+                /&gt;Afhaling en levering &lt;b&gt;met&lt;/b&gt; laadklep&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Optionele
+                Toeslagen&lt;/b&gt;&lt;br /&gt;3e afleverpoging / ander adres / retour toeslag &#x20AC; 25,00&lt;br /&gt;&lt;br
+                /&gt;&lt;b&gt;Verwerkte Toeslagen&lt;/b&gt;&lt;br /&gt;&lt;{usedSurcharges}&gt;
+            </info>
+            <pickup>2019-03-15</pickup>
+            <delivery>2019-03-18</delivery>
+            <surcharges>
+                <surcharge>
+                    <name>Pallet toeslag</name>
+                    <price>2.94</price>
+                </surcharge>
+                <surcharge>
+                    <name>Brandstoftoeslag</name>
+                    <percentage>9.25</percentage>
+                    <price>3.72</price>
+                </surcharge>
+            </surcharges>
+        </rate>
+        <rate id="6dc9d41131ef7f9a062d79502a25e0e5">
+            <carrierCode>DEP</carrierCode>
+            <carrierName>DHL Europlus Pallet</carrierName>
+            <serviceLevel>Expresser Benelux pallet (pre 11:00)</serviceLevel>
+            <serviceTime>11:00</serviceTime>
+            <price>77.84</price>
+            <weight>999</weight>
+            <modality>road</modality>
+            <info>&lt;b&gt; Maximale afmetingen&lt;/b&gt;&lt;br /&gt;120cm x 100cm x 200cm (lxbxh)&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximaal
+                gewicht&lt;/b&gt;&lt;br /&gt;1000kg&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Afleverpogingen&lt;/b&gt;&lt;br /&gt;2&lt;br
+                /&gt;&lt;br /&gt;&lt;b&gt;Verzekering&lt;/b&gt;&lt;br /&gt;Zending is verzekerd volgens Algemene
+                Vervoers Condities (max vergoeding. &#x20AC; 3,40 p/kg)&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Extra services&lt;/b&gt;&lt;br
+                /&gt;Afhaling en levering &lt;b&gt;met&lt;/b&gt; laadklep&lt;br /&gt;Levering eerstvolgende werkdag voor
+                11:00u&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Optionele Toeslagen&lt;/b&gt;&lt;br /&gt;3e afleverpoging / ander
+                adres / retour toeslag &#x20AC; 25,00&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Verwerkte Toeslagen&lt;/b&gt;&lt;br
+                /&gt;&lt;{usedSurcharges}&gt;
+            </info>
+            <pickup>2019-03-15</pickup>
+            <delivery>2019-03-18</delivery>
+            <surcharges>
+                <surcharge>
+                    <name>Pallet toeslag</name>
+                    <price>2.94</price>
+                </surcharge>
+                <surcharge>
+                    <name>Brandstoftoeslag</name>
+                    <percentage>9.25</percentage>
+                    <price>6.00</price>
+                </surcharge>
+            </surcharges>
+        </rate>
+        <rate id="37f705f4cd5853774dba7255ddb88035">
+            <carrierCode>GCG</carrierCode>
+            <carrierName>Global Chain Group</carrierName>
+            <serviceLevel>Premium FP</serviceLevel>
+            <serviceTime>00:00</serviceTime>
+            <price>92.70</price>
+            <weight>999</weight>
+            <modality>road</modality>
+            <info>&lt;b&gt; Maximale afmetingen&lt;/b&gt;&lt;br /&gt;120cm x 100cm x 220cm (lxbxh)&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximaal
+                gewicht&lt;/b&gt;&lt;br /&gt;1200 kg&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Afleverpogingen&lt;/b&gt;&lt;br /&gt;1&lt;br
+                /&gt;&lt;br /&gt;&lt;b&gt;Verzekering&lt;/b&gt;&lt;br /&gt;Goederen zijn tijdens transport verzekerd
+                volgens de CMR condities. Indien vervoerder aansprakelijk voor verlies of beschadiging dan is de
+                vergoeding max. &#x20AC; 10,00 p/kg.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Extra services&lt;/b&gt;&lt;br /&gt;Afhaling
+                en levering &lt;b&gt;met&lt;/b&gt; laadklep&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Optionele Toeslagen&lt;/b&gt;&lt;br
+                /&gt;2e leverpoging &#x20AC; 30,00&lt;br /&gt;wijziging &#x20AC; 30,00&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Verwerkte
+                Toeslagen&lt;/b&gt;&lt;br /&gt;&lt;{usedSurcharges}&gt;
+            </info>
+            <pickup>2019-03-15</pickup>
+            <delivery>2019-03-18</delivery>
+        </rate>
+        <rate id="d6dc71c958ae694c685ba8a872a946d4">
+            <carrierCode>TWB</carrierCode>
+            <carrierName>EuroCargo WB</carrierName>
+            <serviceLevel>EUROCARGO MF</serviceLevel>
+            <serviceTime>00:00</serviceTime>
+            <price>95.88</price>
+            <weight>999</weight>
+            <modality>road</modality>
+            <info>EuroCargo WB - EUROCARGO MF</info>
+            <pickup>2019-03-15</pickup>
+            <delivery>2019-03-18</delivery>
+        </rate>
+        <rate id="5960e5608e88c94a14b83f323c8846e6">
+            <carrierCode>TNT</carrierCode>
+            <carrierName>TNT Express</carrierName>
+            <serviceLevel>Next Day Domestic Express</serviceLevel>
+            <serviceTime>00:00</serviceTime>
+            <price>801.58</price>
+            <weight>999</weight>
+            <modality>express</modality>
+            <info>TNT Express - Next Day Domestic Express</info>
+            <pickup>2019-03-14</pickup>
+            <delivery>2019-03-15</delivery>
+            <surcharges>
+                <surcharge>
+                    <name>Fuel surcharge</name>
+                    <percentage>17.50</percentage>
+                    <price>89.77</price>
+                </surcharge>
+                <surcharge>
+                    <name>Non stackable P</name>
+                    <price>70.59</price>
+                </surcharge>
+            </surcharges>
+        </rate>
+    </shipment>
+</rates>

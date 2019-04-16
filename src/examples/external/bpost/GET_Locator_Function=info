@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TaxipostLocator version="1.0" type="TaxipostLocatorInfo">
+    <Copyright>
+        <Txt>&lt;div class="TaxiPostCopyright"&gt;© TaxiPost, Geo6 2019&lt;/div&gt;</Txt>
+    </Copyright>
+    <Query>
+        <Id>618880</Id>
+        <Type>16</Type>
+        <Language>NL</Language>
+    </Query>
+    <Poi>
+        <Record>
+            <ID>618880</ID>
+            <Type>16</Type>
+            <OFFICE>DBH GUY EN AN</OFFICE>
+            <STREET>HERENTHOUTSEWEG</STREET>
+            <NR>149</NR>
+            <ZIP>2200</ZIP>
+            <CITY>HERENTALS</CITY>
+            <X>181822</X>
+            <Y>206139</Y>
+            <Longitude>4.82369</Longitude>
+            <Latitude>51.16439</Latitude>
+            <Services/>
+            <Hours>
+                <Monday>
+                    <AMOpen>5:30</AMOpen>
+                    <AMClose>19:00</AMClose>
+                    <PMOpen></PMOpen>
+                    <PMClose></PMClose>
+                </Monday>
+                <Tuesday>
+                    <AMOpen>5:30</AMOpen>
+                    <AMClose>19:00</AMClose>
+                    <PMOpen></PMOpen>
+                    <PMClose></PMClose>
+                </Tuesday>
+                <Wednesday>
+                    <AMOpen>5:30</AMOpen>
+                    <AMClose>19:00</AMClose>
+                    <PMOpen></PMOpen>
+                    <PMClose></PMClose>
+                </Wednesday>
+                <Thursday>
+                    <AMOpen>5:30</AMOpen>
+                    <AMClose>19:00</AMClose>
+                    <PMOpen></PMOpen>
+                    <PMClose></PMClose>
+                </Thursday>
+                <Friday>
+                    <AMOpen>5:30</AMOpen>
+                    <AMClose>19:00</AMClose>
+                    <PMOpen></PMOpen>
+                    <PMClose></PMClose>
+                </Friday>
+                <Saturday>
+                    <AMOpen>8:00</AMOpen>
+                    <AMClose>12:00</AMClose>
+                    <PMOpen></PMOpen>
+                    <PMClose></PMClose>
+                </Saturday>
+                <Sunday>
+                    <AMOpen></AMOpen>
+                    <AMClose></AMClose>
+                    <PMOpen></PMOpen>
+                    <PMClose></PMClose>
+                </Sunday>
+            </Hours>
+            <ClosedFrom></ClosedFrom>
+            <ClosedTo></ClosedTo>
+            <NOTE></NOTE>
+        </Record>
+        <Page ServiceRef="http://taxipost.geo6.be/Locator?Function=page&amp;Partner=116239&amp;Id=618880&amp;Type=16&amp;Language=NL"/>
+    </Poi>
+</TaxipostLocator>

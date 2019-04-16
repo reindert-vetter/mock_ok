@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="default@localhost">
-  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.14">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.15">
     <root id="1">
       <ServerVersion>11.1</ServerVersion>
     </root>
@@ -40,8 +40,8 @@ sequence|table|24649|24651|1
       <CreateRole>1</CreateRole>
       <CreateDb>1</CreateDb>
       <CanLogin>1</CanLogin>
-      <Replication>1</Replication>
       <ConnectionLimit>-1</ConnectionLimit>
+      <Replication>1</Replication>
       <BypassRls>1</BypassRls>
     </role>
     <role id="7" parent="1" name="laradock_gitlab">
@@ -195,32 +195,32 @@ sequence|table|24649|24651|1
     </extension>
     <sequence id="30" parent="22" name="migrations_id_seq">
       <ObjectId>24610</ObjectId>
-      <Owner>default</Owner>
       <StateNumber>855</StateNumber>
+      <Owner>default</Owner>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <sequence id="31" parent="22" name="preserve_requests_id_seq">
       <ObjectId>24649</ObjectId>
-      <Owner>default</Owner>
       <StateNumber>862</StateNumber>
+      <Owner>default</Owner>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <sequence id="32" parent="22" name="preserve_responses_id_seq">
       <ObjectId>24638</ObjectId>
-      <Owner>default</Owner>
       <StateNumber>860</StateNumber>
+      <Owner>default</Owner>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <sequence id="33" parent="22" name="users_id_seq">
       <ObjectId>24618</ObjectId>
-      <Owner>default</Owner>
       <StateNumber>856</StateNumber>
+      <Owner>default</Owner>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
@@ -282,8 +282,8 @@ sequence|table|24649|24651|1
       <ObjectId>24617</ObjectId>
       <StateNumber>855</StateNumber>
       <ColNames>id</ColNames>
-      <UnderlyingIndexName>migrations_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
+      <UnderlyingIndexName>migrations_pkey</UnderlyingIndexName>
     </key>
     <column id="44" parent="35" name="email">
       <Position>1</Position>
@@ -396,8 +396,8 @@ sequence|table|24649|24651|1
       <ObjectId>24659</ObjectId>
       <StateNumber>862</StateNumber>
       <ColNames>id</ColNames>
-      <UnderlyingIndexName>preserve_requests_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
+      <UnderlyingIndexName>preserve_requests_pkey</UnderlyingIndexName>
     </key>
     <foreign-key id="62" parent="36" name="preserve_requests_preserve_response_id_foreign">
       <ObjectId>24660</ObjectId>
@@ -459,8 +459,8 @@ sequence|table|24649|24651|1
       <ObjectId>24648</ObjectId>
       <StateNumber>860</StateNumber>
       <ColNames>id</ColNames>
-      <UnderlyingIndexName>preserve_responses_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
+      <UnderlyingIndexName>preserve_responses_pkey</UnderlyingIndexName>
     </key>
     <column id="71" parent="38" name="id">
       <Position>1</Position>
@@ -531,8 +531,8 @@ sequence|table|24649|24651|1
       <ObjectId>24628</ObjectId>
       <StateNumber>856</StateNumber>
       <ColNames>id</ColNames>
-      <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
+      <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
     </key>
     <key id="82" parent="38" name="users_email_unique">
       <ObjectId>24630</ObjectId>

@@ -17,9 +17,7 @@ return [
             '{{ $key }}' => '{{ $header }}',
 @endforeach
         ],
-        'body'    =>  LANG_IDE'
-{!! $body !!}
-',
+        'body'    =>  LANG_IDE'{!! $body !!}',
     ],
 
 ];

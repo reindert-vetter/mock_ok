@@ -1,0 +1,33 @@
+{
+  "data": {
+    "shipments": [
+      {
+        "reference_identifier": "FOO-222-BAR-42",
+        "recipient": {
+          "cc": "NL",
+          "region": "Zuid-Holland",
+          "city": "Hoofddorp",
+          "street": "Siriusdreef",
+          "number": "66",
+          "postal_code": "2132WT",
+          "person": "Mr. Parcel",
+          "phone": "0213030315",
+          "email": "testing@myparcel.nl"
+        },
+        "options": {
+          "package_type": 1,
+          "only_recipient": 0,
+          "signature": 0,
+          "return": 0,
+          "insurance": {
+            "amount": 0,
+            "currency": "EUR"
+          },
+          "large_format": 0,
+          "label_description": "My custom description"
+        },
+        "carrier": 1
+      }
+    ]
+  }
+}

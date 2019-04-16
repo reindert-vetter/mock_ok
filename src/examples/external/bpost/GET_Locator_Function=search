@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TaxipostLocator version="1.0" type="TaxipostLocatorList">
+  <Copyright>
+    <Txt>&lt;div class="TaxiPostCopyright"&gt;© TaxiPost, Geo6 2019&lt;/div&gt;</Txt>
+  </Copyright>
+  <Query>
+    <Zone>2200</Zone>
+    <Street></Street>
+    <Number></Number>
+    <Language>NL</Language>
+    <Type>19</Type>
+    <Limit>10</Limit>
+    <CheckDate>0</CheckDate>
+    <CheckList>1</CheckList>
+    <CheckOpen>1</CheckOpen>
+  </Query>
+  <Reference type="GDB">
+    <Source>zones-2019-1.gdb</Source>
+    <Index>1/1 records</Index>
+    <Name>B-2200 HERENTALS (Morkhoven/Noorderwijk)</Name>
+    <ZipId>2200</ZipId>
+  </Reference>
+  <PoiList>
+    <Poi>
+      <Record>
+        <Id>618880</Id>
+        <Type>16</Type>
+        <Name>DBH GUY EN AN</Name>
+        <Street>HERENTHOUTSEWEG</Street>
+        <Number>149</Number>
+        <Zip>2200</Zip>
+        <City>HERENTALS</City>
+        <ClosedFrom></ClosedFrom>
+        <ClosedTo></ClosedTo>
+        <X>181822</X>
+        <Y>206139</Y>
+        <Longitude>4.82369</Longitude>
+        <Latitude>51.16439</Latitude>
+      </Record>
+      <Distance>655.19</Distance>
+      <Info ServiceRef="http://taxipost.geo6.be/Locator?Function=info&amp;Partner=116239&amp;Id=618880&amp;Type=16&amp;Language=NL"/>
+    </Poi>
+    <Poi>
+      <Record>
+        <Id>216200</Id>
+        <Type>1</Type>
+        <Name>HERENTALS</Name>
+        <Street>BELGIËLAAN</Street>
+        <Number>51</Number>
+        <Zip>2200</Zip>
+        <City>HERENTALS</City>
+        <ClosedFrom>19/04/2019</ClosedFrom>
+        <ClosedTo>19/04/2019</ClosedTo>
+        <X>182452</X>
+        <Y>207945</Y>
+        <Longitude>4.83285</Longitude>
+        <Latitude>51.18059</Latitude>
+      </Record>
+      <Distance>2361.83</Distance>
+      <Info ServiceRef="http://taxipost.geo6.be/Locator?Function=info&amp;Partner=116239&amp;Id=216200&amp;Type=1&amp;Language=NL"/>
+    </Poi>
+    <Poi>
+      <Record>
+        <Id>820840</Id>
+        <Type>2</Type>
+        <Name>DAGBLADHANDEL PAPERCLIP</Name>
+        <Street>RING</Street>
+        <Number>79</Number>
+        <Zip>2200</Zip>
+        <City>HERENTALS</City>
+        <ClosedFrom>09/02/2019</ClosedFrom>
+        <ClosedTo>18/02/2019</ClosedTo>
+        <X>182711</X>
+        <Y>203039</Y>
+        <Longitude>4.83611</Longitude>
+        <Latitude>51.13648</Latitude>
+      </Record>
+      <Distance>2610.93</Distance>
+      <Info ServiceRef="http://taxipost.geo6.be/Locator?Function=info&amp;Partner=116239&amp;Id=820840&amp;Type=2&amp;Language=NL"/>
+    </Poi>
+    <Poi>
+      <Record>
+        <Id>299400</Id>
+        <Type>1</Type>
+        <Name>OLEN</Name>
+        <Street>OEVELSEWEG</Street>
+        <Number>60</Number>
+        <Zip>2250</Zip>
+        <City>OLEN</City>
+        <ClosedFrom>19/04/2019</ClosedFrom>
+        <ClosedTo>19/04/2019</ClosedTo>
+        <X>187098</X>
+        <Y>205923</Y>
+        <Longitude>4.89909</Longitude>
+        <Latitude>51.16213</Latitude>
+      </Record>
+      <Distance>4917.74</Distance>
+      <Info ServiceRef="http://taxipost.geo6.be/Locator?Function=info&amp;Partner=116239&amp;Id=299400&amp;Type=1&amp;Language=NL"/>
+    </Poi>
+    <Poi>
+      <Record>
+        <Id>633730</Id>
+        <Type>16</Type>
+        <Name>KLAVERTJE VIER</Name>
+        <Street>TER VOORT</Street>
+        <Number>145</Number>
+        <Zip>2260</Zip>
+        <City>WESTERLO</City>
+        <ClosedFrom></ClosedFrom>
+        <ClosedTo></ClosedTo>
+        <X>184382</X>
+        <Y>200877</Y>
+        <Longitude>4.85978</Longitude>
+        <Latitude>51.11695</Latitude>
+      </Record>
+      <Distance>5204.29</Distance>
+      <Info ServiceRef="http://taxipost.geo6.be/Locator?Function=info&amp;Partner=116239&amp;Id=633730&amp;Type=16&amp;Language=NL"/>
+    </Poi>
+    <Poi>
+      <Record>
+        <Id>632731</Id>
+        <Type>16</Type>
+        <Name>DBH AKTUEEL</Name>
+        <Street>VONCKSTRAAT</Street>
+        <Number>21</Number>
+        <Zip>2270</Zip>
+        <City>HERENTHOUT</City>
+        <ClosedFrom></ClosedFrom>
+        <ClosedTo></ClosedTo>
+        <X>177278</X>
+        <Y>203249</Y>
+        <Longitude>4.75851</Longitude>
+        <Latitude>51.13865</Latitude>
+      </Record>
+      <Distance>5445.55</Distance>
+      <Info ServiceRef="http://taxipost.geo6.be/Locator?Function=info&amp;Partner=116239&amp;Id=632731&amp;Type=16&amp;Language=NL"/>
+    </Poi>
+    <Poi>
+      <Record>
+        <Id>279500</Id>
+        <Type>1</Type>
+        <Name>HERENTHOUT</Name>
+        <Street>MARKT</Street>
+        <Number>4</Number>
+        <Zip>2270</Zip>
+        <City>HERENTHOUT</City>
+        <ClosedFrom>19/04/2019</ClosedFrom>
+        <ClosedTo>19/04/2019</ClosedTo>
+        <X>177120</X>
+        <Y>203351</Y>
+        <Longitude>4.75626</Longitude>
+        <Latitude>51.13957</Latitude>
+      </Record>
+      <Distance>5546.42</Distance>
+      <Info ServiceRef="http://taxipost.geo6.be/Locator?Function=info&amp;Partner=116239&amp;Id=279500&amp;Type=1&amp;Language=NL"/>
+    </Poi>
+    <Poi>
+      <Record>
+        <Id>618855</Id>
+        <Type>16</Type>
+        <Name>DAGBLADHANDEL VERDONCK</Name>
+        <Street>LICHTAARTSEWEG</Street>
+        <Number>118</Number>
+        <Zip>2250</Zip>
+        <City>OLEN</City>
+        <ClosedFrom></ClosedFrom>
+        <ClosedTo></ClosedTo>
+        <X>187255</X>
+        <Y>207900</Y>
+        <Longitude>4.90153</Longitude>
+        <Latitude>51.17989</Latitude>
+      </Record>
+      <Distance>5562.79</Distance>
+      <Info ServiceRef="http://taxipost.geo6.be/Locator?Function=info&amp;Partner=116239&amp;Id=618855&amp;Type=16&amp;Language=NL"/>
+    </Poi>
+    <Poi>
+      <Record>
+        <Id>873500</Id>
+        <Type>2</Type>
+        <Name>CARREF MARKET WESTERLO</Name>
+        <Street>VELDSTRAAT</Street>
+        <Number>12</Number>
+        <Zip>2260</Zip>
+        <City>WESTERLO</City>
+        <ClosedFrom></ClosedFrom>
+        <ClosedTo></ClosedTo>
+        <X>184865</X>
+        <Y>200613</Y>
+        <Longitude>4.86666</Longitude>
+        <Latitude>51.11454</Latitude>
+      </Record>
+      <Distance>5656.55</Distance>
+      <Info ServiceRef="http://taxipost.geo6.be/Locator?Function=info&amp;Partner=116239&amp;Id=873500&amp;Type=2&amp;Language=NL"/>
+    </Poi>
+    <Poi>
+      <Record>
+        <Id>802390</Id>
+        <Type>2</Type>
+        <Name>DE OEVELSE BOEKENWINKEL</Name>
+        <Street>TONGERLOSTRAAT</Street>
+        <Number>1</Number>
+        <Zip>2260</Zip>
+        <City>WESTERLO</City>
+        <ClosedFrom></ClosedFrom>
+        <ClosedTo></ClosedTo>
+        <X>187470</X>
+        <Y>202981</Y>
+        <Longitude>4.9041</Longitude>
+        <Latitude>51.13567</Latitude>
+      </Record>
+      <Distance>5891.87</Distance>
+      <Info ServiceRef="http://taxipost.geo6.be/Locator?Function=info&amp;Partner=116239&amp;Id=802390&amp;Type=2&amp;Language=NL"/>
+    </Poi>
+  </PoiList>
+</TaxipostLocator>

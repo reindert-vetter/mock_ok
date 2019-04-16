@@ -5,6 +5,7 @@ namespace App\Domains\Collect\Controllers;
 
 use App\Console\Helpers\Json;
 use App\Domains\Collect\Helpers\RequestHelper;
+use App\Domains\Collect\Helpers\ResponseHelper;
 use App\Domains\Collect\Providers\RequestProvider;
 use Exception;
 use Illuminate\Http\Request;
@@ -36,7 +37,7 @@ class CollectorController
 
         $clientResponse = $requestProvider->handle(
             $request->method(),
-            RequestHelper::removeTwinsHost($request->getUri()),
+            str_replace('http://', 'https://', $request->url()),
             $request->query->all(),
             $request->getContent(),
             $request->headers->all()
@@ -44,11 +45,13 @@ class CollectorController
 
         $this->saveExample($request, $clientResponse);
 
-        return new ConsumerResponse(
+        $result = new ConsumerResponse(
             (string)$clientResponse->getBody(),
             $clientResponse->getStatusCode(),
             $clientResponse->getHeaders()
         );
+
+        return $result;
     }
 
     /**
@@ -68,8 +71,9 @@ class CollectorController
             "method"  => $consumerRequest->getMethod(),
             "url"     => $url,
             "status"  => $clientResponse->getStatusCode(),
-            "body"    => Json::prettyPrint($body),
-            "headers" => RequestHelper::normalizeHeaders($consumerRequest),
+            "body"    => $body,
+//            "body"    => Json::prettyPrint($body),
+            "headers" => ResponseHelper::normalizeHeaders($clientResponse->getHeaders(), strlen($body)),
         ];
 
         $exampleInc = "<?php\n\n" . view('body-template')
@@ -108,11 +112,12 @@ class CollectorController
 
         $example = $matchExamples->first();
 
-        return new Response(
+        $response = new Response(
             $example['response']['body'],
             $example['response']['status'],
-            $example['response']['headers']
-        );
+            ResponseHelper::normalizeHeaders($example['response']['headers'], strlen($example['response']['body'])));
+
+        return $response->setContent($example['response']['body']);
     }
 
     /**
@@ -152,7 +157,6 @@ class CollectorController
     private function getRegexUrl(Request $consumerRequest): string
     {
         $url = $consumerRequest->fullUrl();
-        $url = RequestHelper::removeTwinsHost($url);
 
         $regexUrl = preg_quote(html_entity_decode($url), '#');
         return str_replace(['https\:', 'http\:'], 'https?\:', $regexUrl);
