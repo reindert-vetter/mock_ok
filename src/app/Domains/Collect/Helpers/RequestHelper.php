@@ -72,8 +72,11 @@ class RequestHelper
 //        $url = str_replace_first('http://', 'https://', $url);
 //        $url = str_replace_first('127.0.0.1:80', '', $url);
 //        $url = str_replace_first('.twins.dev.myparcel.nl', '', $url);
-        $url = str_replace_first('twins/', '', $url);
 //        $url = str_replace_first('.localhost', '', $url);
+
+        // convert e.g. http://docker_twins_1/api.myparcel.nl to  http://api.myparcel.nl
+        preg_match('#([^/]*[/]*)[^/]*/(.*)#', $url, $matches);
+        $url = $matches[1] . $matches[2];
         return parse_url($url, PHP_URL_HOST);
     }
 }

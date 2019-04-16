@@ -83,11 +83,12 @@ class CollectorController
                 ->render();
         $exampleInc = str_replace('LANG_IDE', "/** @lang $langIde */", $exampleInc);
 
-        if (file_exists(base_path() . "/examples/$fileName.inc")) {
+        $examplePath = base_path() . "/examples/$fileName.inc";
+        if (file_exists($examplePath)) {
             throw new \Exception("Can't create example $fileName.inc already exist");
         }
 
-        file_put_contents(base_path() . "/examples/$fileName.inc", $exampleInc);
+        file_put_contents($examplePath, $exampleInc);
     }
 
     /**
