@@ -77,6 +77,7 @@ class RequestHelper
         // convert e.g. http://docker_twins_1/api.myparcel.nl to  http://api.myparcel.nl
         preg_match('#([^/]*[/]*)[^/]*/(.*)#', $url, $matches);
         $url = $matches[1] . $matches[2];
+
         return parse_url($url, PHP_URL_HOST);
     }
 }

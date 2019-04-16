@@ -1,2 +1,0 @@
-<?xml version="1.0"?>
-<status><status>ok</status><label id="0"><number>190000154</number><paid>true</paid><details><datePickup>2019-03-15</datePickup><dateDelivery>2019-03-18</dateDelivery><carrierCode>DEP</carrierCode><carrierName>DHL Europlus Pallet</carrierName><totalNet>49.42</totalNet><weight>1</weight><status>booked</status><trackAndTrace><url>http://www.cheapcargo-demo.nl/Data/TrackAndTrace?id=1355ce43-b46b-617a-e346-a2c0c90bc4df&amp;ajax=true</url></trackAndTrace></details></label></status>

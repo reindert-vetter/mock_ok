@@ -1,9 +1,0 @@
-This folder contains serialized CIF response objects.
-
-To add a new response object go to
-AbstractCifWebService::soapCall()
-
-The output of "serialize($response)" for the response object of "$response = $client->__soapCall($method, [$method => $params]);"
-should be put in a file with the same name of the Soap Method which has been called.
-
-This seemed to be the most easy way of mocking Cif responses.

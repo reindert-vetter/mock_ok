@@ -20,6 +20,8 @@ use Psr\Http\Message\ResponseInterface;
  */
 class CollectorController
 {
+    const EXAMPLE_PATH = '/storage/app/examples/response/';
+
     /**
      * @param  Request         $request
      * @param  RequestProvider $requestProvider
@@ -83,7 +85,7 @@ class CollectorController
                 ->render();
         $exampleInc = str_replace('LANG_IDE', "/** @lang $langIde */", $exampleInc);
 
-        $examplePath = base_path() . "/examples/$fileName.inc";
+        $examplePath = base_path() . self::EXAMPLE_PATH . "$fileName.inc";
         if (file_exists($examplePath)) {
             throw new \Exception("Can't create example $fileName.inc already exist");
         }
@@ -111,7 +113,7 @@ class CollectorController
         }
 
         if ($matchExamples->count() > 1) {
-            $pathExamples = str_replace('/var/www/examples/', '', $matchExamples->pluck('path')->implode(", \n"));
+            $pathExamples = str_replace(base_path() . self::EXAMPLE_PATH, '', $matchExamples->pluck('path')->implode(", \n"));
             throw new Exception("Multiple examples have a match: \n" . $pathExamples);
         }
 
@@ -134,7 +136,7 @@ class CollectorController
     private function getExamples(string $dir = null, array &$results = []): Collection
     {
         if (null === $dir) {
-            $dir = base_path() . '/examples/';
+            $dir = base_path() . self::EXAMPLE_PATH;
         }
 
         $files = scandir($dir);
