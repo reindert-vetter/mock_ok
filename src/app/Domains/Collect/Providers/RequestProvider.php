@@ -35,6 +35,9 @@ class RequestProvider
             'query'   => $query,
             'body'    => $body,
             'timeout' => 10,
+            'http_errors' => false,
+            'verify'      => false, //Self signed certificate used by CheapCargo does not verify
+            ['protocols'   => ['http', 'https']],
         ];
 
         try {
