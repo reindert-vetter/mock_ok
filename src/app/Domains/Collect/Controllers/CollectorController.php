@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response as ConsumerResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Psr\Http\Message\ResponseInterface;
 
@@ -20,11 +21,11 @@ use Psr\Http\Message\ResponseInterface;
  */
 class CollectorController
 {
-    const EXAMPLE_PATH = '/storage/app/examples/response/';
+    const REQUEST_MOCKED_PATH = 'examples/response/';
 
     /**
-     * @param  Request         $request
-     * @param  RequestProvider $requestProvider
+     * @param Request         $request
+     * @param RequestProvider $requestProvider
      * @return \Illuminate\Http\Response
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Throwable
@@ -57,17 +58,14 @@ class CollectorController
     }
 
     /**
-     * @param  \Illuminate\Http\Request            $consumerRequest
-     * @param  \Psr\Http\Message\ResponseInterface $clientResponse
+     * @param \Illuminate\Http\Request            $consumerRequest
+     * @param \Psr\Http\Message\ResponseInterface $clientResponse
      * @throws \Throwable
      */
     private function saveExample(Request $consumerRequest, ResponseInterface $clientResponse): void
     {
-        $fileName = Str::slug(
-            trim(str_replace(['.', '/', '?', '=', '&', 'https', 'http'], '-', $consumerRequest->fullUrl()), '-')
-        );
-        $body     = (string) $clientResponse->getBody();
-        $langIde  = Json::isJson($body) ? 'JSON' : 'XML';
+        $body    = (string) $clientResponse->getBody();
+        $langIde = Json::isJson($body) ? 'JSON' : 'XML';
 
         $url = $this->getRegexUrl($consumerRequest);
 
@@ -80,21 +78,21 @@ class CollectorController
             "headers" => ResponseHelper::normalizeHeaders($clientResponse->getHeaders(), strlen($body)),
         ];
 
-        $exampleInc = "<?php\n\n" . view('body-template')
+        $content = "<?php\n\n" . view('body-template')
                 ->with($with)
                 ->render();
-        $exampleInc = str_replace('LANG_IDE', "/** @lang $langIde */", $exampleInc);
+        $content = str_replace('LANG_IDE', "/** @lang $langIde */", $content);
 
-        $examplePath = base_path() . self::EXAMPLE_PATH . "$fileName.inc";
-        if (file_exists($examplePath)) {
-            throw new \Exception("Can't create example $fileName.inc already exist");
+        $path = $this->getFilePath($consumerRequest);
+        if (Storage::exists($path)) {
+            throw new Exception("Can't create example $path already exist");
         }
 
-        file_put_contents($examplePath, $exampleInc);
+        Storage::put($path, $content);
     }
 
     /**
-     * @param  \Illuminate\Http\Request $consumerRequest
+     * @param \Illuminate\Http\Request $consumerRequest
      * @return \Illuminate\Http\Response
      * @throws Exception
      */
@@ -103,8 +101,9 @@ class CollectorController
         $examples = $this->getExamples();
 
         $matchExamples = $examples->filter(
-            function ($value) use ($consumerRequest) {
-                return call_user_func($value['when'], $consumerRequest);
+            function ($path) use ($consumerRequest) {
+                $mock = require(base_path('storage/app/' . $path));
+                return call_user_func($mock['when'], $consumerRequest);
             }
         );
 
@@ -113,53 +112,36 @@ class CollectorController
         }
 
         if ($matchExamples->count() > 1) {
-            $pathExamples = str_replace(base_path() . self::EXAMPLE_PATH, '', $matchExamples->pluck('path')->implode(", \n"));
+            $pathExamples = str_replace(base_path() . self::REQUEST_MOCKED_PATH, '', $matchExamples->pluck('path')->implode(", \n"));
             throw new Exception("Multiple examples have a match: \n" . $pathExamples);
         }
 
-        $example = $matchExamples->first();
+        $path = $matchExamples->first();
 
+        $mock     = require(base_path('storage/app/' . $path));
         $response = new Response(
-            $example['response']['body'],
-            $example['response']['status'],
-            ResponseHelper::normalizeHeaders($example['response']['headers'], strlen($example['response']['body']))
+            $mock['response']['body'],
+            $mock['response']['status'],
+            ResponseHelper::normalizeHeaders($mock['response']['headers'], strlen($mock['response']['body']))
         );
 
-        return $response->setContent($example['response']['body']);
+        return $response->setContent($mock['response']['body']);
     }
 
     /**
-     * @param  string $dir
-     * @param  array  $results
      * @return Collection
      */
-    private function getExamples(string $dir = null, array &$results = []): Collection
+    private function getExamples(): Collection
     {
-        if (null === $dir) {
-            $dir = base_path() . self::EXAMPLE_PATH;
-        }
+        $dir = self::REQUEST_MOCKED_PATH;
 
-        $files = scandir($dir);
+        $files = collect(Storage::allFiles($dir));
 
-        foreach ($files as $key => $value) {
-            $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
-
-            if (! is_dir($path)) {
-                if (false !== strpos($path, '.inc')) {
-                    $example         = require($path);
-                    $example['path'] = $path;
-                    $results[]       = $example;
-                }
-            } elseif ($value != "." && $value != "..") {
-                $this->getExamples($path, $results);
-            }
-        }
-
-        return collect($results);
+        return $files;
     }
 
     /**
-     * @param  Request $consumerRequest
+     * @param Request $consumerRequest
      * @return string
      */
     private function getRegexUrl(Request $consumerRequest): string
@@ -168,5 +150,31 @@ class CollectorController
 
         $regexUrl = preg_quote(html_entity_decode($url), '#');
         return str_replace(['https\:', 'http\:'], 'https?\:', $regexUrl);
+    }
+
+    /**
+     * @param string $value
+     * @return string
+     */
+    private function getSlug(string $value): string
+    {
+        $value = Str::kebab($value);
+        return Str::slug(
+            trim(str_replace(['.', '/', '?', '=', '&', 'https', 'http', 'www', 'api.', '/api'], '-', $value), '-')
+        );
+    }
+
+    /**
+     * @param Request $consumerRequest
+     * @return string
+     */
+    private function getFilePath(Request $consumerRequest): string
+    {
+        preg_match('/(?<service>\w+).\w{2,10}$/', $consumerRequest->getHost(), $match);
+        $service  = Str::kebab($match['service']);
+        $fileName = $consumerRequest->method() . ' ' . $this->getSlug(pathinfo($consumerRequest->getUri())['basename']);
+        $path     = self::REQUEST_MOCKED_PATH . "$service/$fileName.inc";
+
+        return $path;
     }
 }
