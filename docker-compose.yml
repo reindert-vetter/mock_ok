@@ -1,0 +1,11 @@
+version: '3.2'
+services:
+  twins:
+    build:
+      context: ./
+    volumes:
+      - "./:/var/www/html"
+    networks:
+      default:
+        aliases:
+          - "twins"
