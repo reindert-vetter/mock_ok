@@ -4,16 +4,16 @@
 # Create the .env file if it does not exist.
 # ----------------------------------------------------------------------
 
-if [[ ! -f "/var/www/.env" ]] && [[ -f "/var/www/.env.example" ]];
+if [[ ! -f "/var/www/http/.env" ]] && [[ -f "/var/www/http/.env.example" ]];
 then
-cp /var/www/.env.example /var/www/.env
+cp /var/www/http/.env.example /var/www/http/.env
 fi
 
 # ----------------------------------------------------------------------
 # Run Composer
 # ----------------------------------------------------------------------
 
-if [[ ! -d "/var/www/vendor" ]];
+if [[ ! -d "/var/www/http/vendor" ]];
 then
 cd /var/www
 composer update
