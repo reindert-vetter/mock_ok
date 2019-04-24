@@ -31,6 +31,7 @@ ln -s /etc/php7/php.ini /etc/php7/conf.d/php.ini
 RUN apk add --update \
 bash \
 curl \
+vim \
 openssh-client \
 supervisor
 
