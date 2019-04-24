@@ -59,6 +59,8 @@ sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" \
 
 COPY . /var/www/html
 
+RUN cd /var/www/html/src && composer update && composer dump-autoload -o
+
 EXPOSE 8010
 WORKDIR /var/www
 

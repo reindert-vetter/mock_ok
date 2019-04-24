@@ -13,12 +13,12 @@ fi
 # Run Composer
 # ----------------------------------------------------------------------
 
-if [[ ! -d "/var/www/http/vendor" ]];
-then
-cd /var/www
-composer update
-composer dump-autoload -o
-fi
+#if [[ ! -d "/var/www/http/vendor" ]];
+#then
+#cd /var/www
+#composer update
+#composer dump-autoload -o
+#fi
 
 # ----------------------------------------------------------------------
 # Start supervisord
