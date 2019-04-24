@@ -59,7 +59,7 @@ sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" \
 /etc/php7/php-fpm.d/www.conf
 
 COPY . /var/www/html
-
+RUN chmod 755 /var/www/html/src/storage/framework/views
 RUN cd /var/www/html/src && composer update && composer dump-autoload -o
 
 EXPOSE 8010
