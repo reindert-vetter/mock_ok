@@ -35,7 +35,7 @@ do
 done
 
 # ----------------------------------------------------------------------
-# Start supervisord
+# Start supervisor
 # ----------------------------------------------------------------------
 
 exec /usr/bin/supervisord -n -c /etc/supervisord.conf
