@@ -64,29 +64,6 @@ COPY . /var/www/html
 #RUN chown nginx:nginx /var/www/html/src/storage/logs/*
 RUN cd /var/www/html/src && composer update && composer dump-autoload -o
 
-cd /var/www/html
-
-for DIR in \
-	/var/www/html/src/bootstrap/cache \
-	/var/www/html/src/storage/app \
-	/var/www/html/src/storage/app/public \
-	/var/www/html/src/storage/app/examples \
-	/var/www/html/src/storage/app/examples/response \
-	/var/www/html/src/storage/framework \
-	/var/www/html/src/storage/framework/cache \
-	/var/www/html/src/storage/framework/cache/data \
-	/var/www/html/src/storage/framework/sessions \
-	/var/www/html/src/storage/framework/testing \
-	/var/www/html/src/storage/framework/views \
-	/var/www/html/src/storage/logs
-do
-	mkdir --parents $DIR
-	chown www-data:www-data $DIR
-	chmod u+rw,g+rws $DIR
-	setfacl --default --logical --mask -m u:"www-data":rwX $DIR
-	setfacl --logical --mask -m u:"www-data":rwX $DIR
-done
-
 EXPOSE 8010
 WORKDIR /var/www
 
