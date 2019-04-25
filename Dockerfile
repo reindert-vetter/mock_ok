@@ -49,17 +49,19 @@ RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" \
 /etc/php7/php.ini && \
 sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" \
 -e "s/;catch_workers_output\s*=\s*yes/catch_workers_output = yes/g" \
--e "s/user = nobody/user = nginx/g" \
--e "s/group = nobody/group = nginx/g" \
+#-e "s/user = nobody/user = nginx/g" \
+#-e "s/group = nobody/group = nginx/g" \
 -e "s/;listen.mode = 0660/listen.mode = 0666/g" \
--e "s/;listen.owner = nobody/listen.owner = nginx/g" \
--e "s/;listen.group = nobody/listen.group = nginx/g" \
+#-e "s/;listen.owner = nobody/listen.owner = nginx/g" \
+#-e "s/;listen.group = nobody/listen.group = nginx/g" \
 -e "s/listen = 127.0.0.1:9000/listen = \/var\/run\/php-fpm.sock/g" \
 -e "s/^;clear_env = no$/clear_env = no/" \
 /etc/php7/php-fpm.d/www.conf
 
 COPY . /var/www/html
-RUN chmod 755 /var/www/html/src/storage/framework/views
+#RUN chown nginx:nginx /var/www/html/src/storage/framework/*
+#RUN chown nginx:nginx /var/www/html/src/storage/logs
+#RUN chown nginx:nginx /var/www/html/src/storage/logs/*
 RUN cd /var/www/html/src && composer update && composer dump-autoload -o
 
 EXPOSE 8010
