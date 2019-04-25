@@ -28,10 +28,10 @@ for DIR in \
 	/var/www/html/src/storage/logs
 do
 	mkdir --parents $DIR
-	chown www-data:www-data $DIR
+	chown nginx:nginx $DIR
 	chmod u+rw,g+rws $DIR
-	setfacl --default --logical --mask -m u:"www-data":rwX $DIR
-	setfacl --logical --mask -m u:"www-data":rwX $DIR
+	setfacl --default --logical --mask -m u:"nginx":rwX $DIR
+	setfacl --logical --mask -m u:"nginx":rwX $DIR
 done
 
 # ----------------------------------------------------------------------
