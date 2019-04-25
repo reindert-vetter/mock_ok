@@ -49,11 +49,11 @@ RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" \
 /etc/php7/php.ini && \
 sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" \
 -e "s/;catch_workers_output\s*=\s*yes/catch_workers_output = yes/g" \
--e "s/user = nobody/user = root/g" \
--e "s/group = nobody/group = root/g" \
+-e "s/user = nobody/user = www-data/g" \
+-e "s/group = nobody/group = www-data/g" \
 -e "s/;listen.mode = 0660/listen.mode = 0666/g" \
--e "s/;listen.owner = nobody/listen.owner = root/g" \
--e "s/;listen.group = nobody/listen.group = root/g" \
+-e "s/;listen.owner = nobody/listen.owner = www-data/g" \
+-e "s/;listen.group = nobody/listen.group = www-data/g" \
 -e "s/listen = 127.0.0.1:9000/listen = \/var\/run\/php-fpm.sock/g" \
 -e "s/^;clear_env = no$/clear_env = no/" \
 /etc/php7/php-fpm.d/www.conf
@@ -63,6 +63,29 @@ COPY . /var/www/html
 #RUN chown nginx:nginx /var/www/html/src/storage/logs
 #RUN chown nginx:nginx /var/www/html/src/storage/logs/*
 RUN cd /var/www/html/src && composer update && composer dump-autoload -o
+
+cd /var/www/html
+
+for DIR in \
+	/var/www/html/src/bootstrap/cache \
+	/var/www/html/src/storage/app \
+	/var/www/html/src/storage/app/public \
+	/var/www/html/src/storage/app/examples \
+	/var/www/html/src/storage/app/examples/response \
+	/var/www/html/src/storage/framework \
+	/var/www/html/src/storage/framework/cache \
+	/var/www/html/src/storage/framework/cache/data \
+	/var/www/html/src/storage/framework/sessions \
+	/var/www/html/src/storage/framework/testing \
+	/var/www/html/src/storage/framework/views \
+	/var/www/html/src/storage/logs
+do
+	mkdir --parents $DIR
+	chown www-data:www-data $DIR
+	chmod u+rw,g+rws $DIR
+	setfacl --default --logical --mask -m u:"www-data":rwX $DIR
+	setfacl --logical --mask -m u:"www-data":rwX $DIR
+done
 
 EXPOSE 8010
 WORKDIR /var/www
