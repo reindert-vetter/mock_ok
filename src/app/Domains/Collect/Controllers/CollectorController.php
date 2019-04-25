@@ -102,10 +102,16 @@ class CollectorController
 
         $matchExamples = $examples->filter(
             function ($path) use ($consumerRequest) {
+                if (false === strpos($path, '.inc')) {
+                    return false;
+                }
+
                 $mock = require(base_path('storage/app/' . $path));
+
                 if (! is_array($mock) || empty($mock['when'])) {
                     return false;
                 }
+
                 return call_user_func($mock['when'], $consumerRequest);
             }
         );
