@@ -46,6 +46,8 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        var_dump($exception->getMessage());
+        exit("\n---------------------\n" . __FILE__ . ":" . __LINE__ . "\n---------------------\n");
 //        return parent::render($request, $exception);
         return $this->prepareJsonResponse($request, $exception);
     }
