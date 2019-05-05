@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace App\Domains\Collect\Helpers;
 
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\HeaderBag;
 
 class RequestHelper
 {
+    const PORT_SEPARATOR = '_PORT_';
+
     /**
      * @param Request $request
      * @return Request
@@ -74,6 +75,7 @@ class RequestHelper
 //        $url = str_replace_first('.twins.dev.myparcel.nl', '', $url);
 //        $url = str_replace_first('.localhost', '', $url);
 
+        $url = str_replace_first(self::PORT_SEPARATOR, ':', $url);
         // convert e.g. http://docker_twins_1/api.myparcel.nl to  http://api.myparcel.nl
         preg_match('#([^/]*[/]*)[^/]*/(.*)#', $url, $matches);
         $url = $matches[1] . $matches[2];
