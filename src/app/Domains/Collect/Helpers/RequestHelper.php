@@ -68,13 +68,7 @@ class RequestHelper
      */
     public static function removeTwinsHost($url): string
     {
-//        $url = str_replace_first(':81', '', $url);
-//        $url = str_replace_first('127.0.0.1', '', $url);
-//        $url = str_replace_first('http://', 'https://', $url);
-//        $url = str_replace_first('127.0.0.1:80', '', $url);
-//        $url = str_replace_first('.twins.dev.myparcel.nl', '', $url);
-//        $url = str_replace_first('.localhost', '', $url);
-
+        // convert e.g. http://docker_twins_1/api.myparcel.nl_PORT_456 to  http://docker_twins_1/api.myparcel.nl:456
         $url = str_replace_first(self::PORT_SEPARATOR, ':', $url);
         // convert e.g. http://docker_twins_1/api.myparcel.nl to  http://api.myparcel.nl
         preg_match('#([^/]*[/]*)[^/]*/(.*)#', $url, $matches);
