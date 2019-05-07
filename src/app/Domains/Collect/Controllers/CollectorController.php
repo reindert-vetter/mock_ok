@@ -15,7 +15,6 @@ use Illuminate\Http\Response;
  */
 class CollectorController
 {
-    const REQUEST_MOCKED_PATH = 'examples/response/';
     /**
      * @var ExampleService
      */

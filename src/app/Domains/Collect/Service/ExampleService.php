@@ -13,7 +13,7 @@ use Psr\Http\Message\ResponseInterface;
 
 class ExampleService
 {
-
+    const REQUEST_MOCKED_PATH = 'examples/response/';
 
     /**
      * @param \Illuminate\Http\Request            $consumerRequest
