@@ -22,7 +22,6 @@ class CollectorController
 
     public function __construct(ExampleService $exampleService)
     {
-
         $this->exampleService = $exampleService;
     }
 
