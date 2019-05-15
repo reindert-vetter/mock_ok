@@ -7,6 +7,7 @@ use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Response;
+use Illuminate\Http\Response as IlluminateResponse;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -44,7 +45,7 @@ class RequestProvider
         try {
             $result = $client->request($method, $url, $options);
         } catch (Exception $exception) {
-            $result = new Response(Response::HTTP_OK, [], $exception->getMessage());
+            $result = new Response(IlluminateResponse::HTTP_OK, [], $exception->getMessage());
         }
 
         return $result;

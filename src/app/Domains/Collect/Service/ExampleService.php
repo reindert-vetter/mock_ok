@@ -23,17 +23,19 @@ class ExampleService
      */
     public function saveExample(Request $consumerRequest, ResponseInterface $clientResponse): void
     {
-        $body    = (string) $clientResponse->getBody();
-        $langIde = Json::isJson($body) ? 'JSON' : 'XML';
+        $responseBody = (string) $clientResponse->getBody();
+        $langIde      = Json::isJson($responseBody) ? 'JSON' : 'XML';
 
         $url = $this->getRegexUrl($consumerRequest);
+        $requestBody = $this->getRegexBody($consumerRequest);
 
         $with = [
-            "method"  => $consumerRequest->getMethod(),
-            "url"     => $url,
-            "status"  => $clientResponse->getStatusCode(),
-            "body"    => $body,
-            "headers" => ResponseHelper::normalizeHeaders($clientResponse->getHeaders(), strlen($body)),
+            "method"       => $consumerRequest->getMethod(),
+            "url"          => $url,
+            "status"       => $clientResponse->getStatusCode(),
+            "requestBody"  => $requestBody,
+            "responseBody" => $responseBody,
+            "headers"      => ResponseHelper::normalizeHeaders($clientResponse->getHeaders(), strlen($responseBody)),
         ];
 
         $content = "<?php\n\n" . view('body-template')
@@ -117,6 +119,17 @@ class ExampleService
 
         $regexUrl = preg_quote(html_entity_decode($url), '#');
         return str_replace(['https\:', 'http\:'], 'https?\:', $regexUrl);
+    }
+
+    /**
+     * @param Request $consumerRequest
+     * @return string
+     */
+    private function getRegexBody(Request $consumerRequest): string
+    {
+        $content = (string) $consumerRequest->getContent();
+
+        return preg_quote(html_entity_decode($content), '#');
     }
 
     /**
