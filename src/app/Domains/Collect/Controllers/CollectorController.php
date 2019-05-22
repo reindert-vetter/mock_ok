@@ -6,9 +6,12 @@ namespace App\Domains\Collect\Controllers;
 use App\Domains\Collect\Helpers\RequestHelper;
 use App\Domains\Collect\Providers\RequestProvider;
 use App\Domains\Collect\Service\ExampleService;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request as LaravelRequest;
 use Illuminate\Http\Response as ConsumerResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
+use Namshi\Cuzzle\Formatter\CurlFormatter;
+use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * @author Reindert Vetter
@@ -26,15 +29,20 @@ class CollectorController
     }
 
     /**
-     * @param Request         $request
-     * @param RequestProvider $requestProvider
-     * @return \Illuminate\Http\Response
+     * @param LaravelRequest         $request
+     * @param ServerRequestInterface $psrRequest
+     * @param RequestProvider        $requestProvider
+     * @return Response
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Throwable
      */
-    public function handle(Request $request, RequestProvider $requestProvider): Response
-    {
+    public function handle(
+        LaravelRequest $request,
+        ServerRequestInterface $psrRequest,
+        RequestProvider $requestProvider
+    ): Response {
         $request = RequestHelper::normalizeRequest($request);
+        $this->logRequest($psrRequest);
 
         if ($result = $this->exampleService->tryExample($request)) {
             return $result;
@@ -57,5 +65,13 @@ class CollectorController
         );
 
         return $result;
+    }
+
+    /**
+     * @param ServerRequestInterface $psrRequest
+     */
+    private function logRequest(ServerRequestInterface $psrRequest): void
+    {
+        Log::driver('single')->debug("\n" . (new CurlFormatter(120))->format($psrRequest));
     }
 }

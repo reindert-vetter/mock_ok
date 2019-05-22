@@ -10,10 +10,14 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/doctrine/dbal" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/doctrine/event-manager" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/justinrainbow/json-schema" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/namshi/cuzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/psr/http-factory" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/seld/jsonlint" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/seld/phar-utils" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/contracts" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/filesystem" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/psr-http-message-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/zendframework/zend-diactoros" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

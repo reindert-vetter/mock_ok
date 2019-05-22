@@ -89,12 +89,16 @@
       <path value="$PROJECT_DIR$/src/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/src/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/src/vendor/symfony/contracts" />
+      <path value="$PROJECT_DIR$/src/vendor/namshi/cuzzle" />
+      <path value="$PROJECT_DIR$/src/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/src/vendor/zendframework/zend-diactoros" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/psr-http-message-bridge" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
     <interpreters>
-      <interpreter home="docker://laradock_nginx:latest/php" id="5fa93063-f66e-4781-835b-6208945e9fac" name="php-fpm" debugger_id="php.debugger.XDebug">
-        <remote_data DOCKER_ACCOUNT_NAME="Docker" DOCKER_IMAGE_NAME="laradock_nginx:latest" DOCKER_REMOTE_PROJECT_PATH="/opt/project" INTERPRETER_PATH="php" HELPERS_PATH="/opt/.phpstorm_helpers" INITIALIZED="false" VALID="true" />
+      <interpreter id="5fa93063-f66e-4781-835b-6208945e9fac" name="php-fpm" home="docker://DATA" debugger_id="php.debugger.XDebug">
+        <remote_data DOCKER_ACCOUNT_NAME="Docker" DOCKER_IMAGE_NAME="laradock_nginx:latest" DOCKER_REMOTE_PROJECT_PATH="/opt/project" INTERPRETER_PATH="php" HELPERS_PATH="/opt/.phpstorm_helpers" INITIALIZED="false" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" />
       </interpreter>
     </interpreters>
   </component>
