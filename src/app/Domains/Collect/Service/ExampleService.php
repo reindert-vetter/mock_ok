@@ -45,7 +45,7 @@ class ExampleService
 
         $path = $this->getFilePath($consumerRequest);
         if (Storage::exists($path)) {
-            throw new Exception("Can't create example $path already exist");
+            $path = $this->getFilePath($consumerRequest, '.double_' . now());
         }
 
         Storage::put($path, $content);
@@ -146,14 +146,15 @@ class ExampleService
 
     /**
      * @param Request $consumerRequest
+     * @param string  $suffix
      * @return string
      */
-    private function getFilePath(Request $consumerRequest): string
+    private function getFilePath(Request $consumerRequest, string $suffix = ''): string
     {
         preg_match('/(?<service>[\w-]+).\w{2,10}$/', $consumerRequest->getHost(), $match);
         $service  = Str::kebab($match['service']);
         $fileName = $consumerRequest->method() . '_' . $this->getSlug(pathinfo($consumerRequest->getUri())['basename']);
-        $path     = self::REQUEST_MOCKED_PATH . "$service/$fileName.inc";
+        $path     = self::REQUEST_MOCKED_PATH . "$service/$fileName$suffix.inc";
 
         return $path;
     }
