@@ -72,6 +72,6 @@ class CollectorController
      */
     private function logRequest(ServerRequestInterface $psrRequest): void
     {
-        Log::driver('single')->debug("\n" . (new CurlFormatter(120))->format($psrRequest));
+        Log::debug("\n" . (new CurlFormatter(120))->format($psrRequest));
     }
 }
