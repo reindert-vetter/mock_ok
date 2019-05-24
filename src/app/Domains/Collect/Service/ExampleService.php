@@ -87,14 +87,18 @@ class ExampleService
 
         $path = $matchExamples->first();
 
-        $mock     = require(base_path('storage/app/' . $path));
-        $response = new Response(
-            $mock['response']['body'],
-            $mock['response']['status'],
-            ResponseHelper::normalizeHeaders($mock['response']['headers'], strlen($mock['response']['body']))
+        /** @noinspection PhpUnusedLocalVariableInspection */
+        $transport = $this->getTransport();
+        $mock      = require(storage_path('app/' . $path));
+
+        $mockedResponse = call_user_func($mock['response'], $transport);
+        $response  = new Response(
+            $mockedResponse['body'],
+            $mockedResponse['status'],
+            ResponseHelper::normalizeHeaders($mockedResponse['headers'], strlen($mockedResponse['body']))
         );
 
-        return $response->setContent($mock['response']['body']);
+        return $response->setContent($mockedResponse['body']);
     }
 
     /**
@@ -159,5 +163,18 @@ class ExampleService
         $path     = self::REQUEST_MOCKED_PATH . "$service/$fileName$suffix.inc";
 
         return $path;
+    }
+
+    protected function getTransport(): Collection
+    {
+        $data = collect();
+        $path = storage_path('app/examples/response/twins_transport.json');
+
+        if (file_exists($path)) {
+            $contents = file_get_contents($path);
+            $data = collect(\GuzzleHttp\json_decode($contents));
+        }
+
+        return $data;
     }
 }

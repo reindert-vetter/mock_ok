@@ -1,6 +1,7 @@
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 return [
 
@@ -11,14 +12,15 @@ return [
             preg_match('#^{!! $requestBody !!}$#', (string) $request->getContent())@endif;
     },
 
-    'response' => [
-        'status'  => {{ $status }},
-        'headers' => [
-@foreach ($headers as $key => $header)
-            '{{ $key }}' => '{{ $header }}',
-@endforeach
-        ],
-        'body'    =>  LANG_IDE'{!! $responseBody !!}',
-    ],
-
+    'response' => function (Collection $transport): array {
+        return [
+            'status'  => {{ $status }},
+            'headers' => [
+    @foreach ($headers as $key => $header)
+                '{{ $key }}' => '{{ $header }}',
+    @endforeach
+            ],
+            'body'    =>  LANG_IDE'{!! $responseBody !!}',
+        ];
+    },
 ];

@@ -41,7 +41,7 @@ return [
 
         'single' => [
             'driver' => 'single',
-            'path' => storage_path('app/examples/response/debug.log'),
+            'path' => storage_path('app/examples/response/twins_debug.log'),
             'level' => 'debug',
         ],
 
