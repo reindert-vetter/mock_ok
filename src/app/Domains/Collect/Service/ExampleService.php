@@ -138,7 +138,7 @@ class ExampleService
      */
     private function getSlug(string $value): string
     {
-        $value = Str::kebab($value);
+        $value = Str::snake($value);
         return Str::slug(
             trim(str_replace(['.', '/', '?', '=', '&', 'https', 'http', 'www', 'api.', '/api'], '_', $value), '_')
         );
@@ -154,6 +154,8 @@ class ExampleService
         preg_match('/(?<service>[\w-]+).\w{2,10}$/', $consumerRequest->getHost(), $match);
         $service  = Str::kebab($match['service']);
         $fileName = $consumerRequest->method() . '_' . $this->getSlug(pathinfo($consumerRequest->getUri())['basename']);
+        $fileName = substr($fileName, 0, 100);
+
         $path     = self::REQUEST_MOCKED_PATH . "$service/$fileName$suffix.inc";
 
         return $path;
