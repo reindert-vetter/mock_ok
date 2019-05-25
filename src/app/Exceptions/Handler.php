@@ -47,7 +47,8 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         exit ('Twins exception: ' . $exception->getMessage() . ' | In ' . $exception->getFile() . ':' . $exception->getLine());
-        // return parent::render($request, $exception);
-        return $this->prepareJsonResponse($request, $exception);
+
+//         return parent::render($request, $exception);
+//         return $this->prepareJsonResponse($request, $exception);
     }
 }
