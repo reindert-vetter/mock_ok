@@ -8,6 +8,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Psr\Http\Message\ResponseInterface;
@@ -34,7 +35,7 @@ class ExampleService
             "url"          => $url,
             "status"       => $clientResponse->getStatusCode(),
             "requestBody"  => $requestBody,
-            "responseBody" => $responseBody,
+            "responseBody" => str_replace("'", "\\'", $responseBody),
             "headers"      => ResponseHelper::normalizeHeaders($clientResponse->getHeaders(), strlen($responseBody)),
         ];
 
@@ -66,7 +67,15 @@ class ExampleService
                     return false;
                 }
 
-                $mock = require(base_path('storage/app/' . $path));
+                $mockPath = base_path('storage/app/' . $path);
+                exec("php -l {$mockPath}", $output, $return);
+
+                if ($return !== 0) {
+                    Log::debug("Syntax errors found in $path");
+                    return false;
+                }
+
+                $mock      = require($mockPath);
 
                 if (! is_array($mock) || empty($mock['when'])) {
                     return false;
