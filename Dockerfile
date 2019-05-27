@@ -61,7 +61,7 @@ sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" \
 COPY . /var/www/html
 #RUN chown nginx:nginx /var/www/html/src/storage/framework/*
 #RUN chown nginx:nginx /var/www/html/src/storage/logs
-#RUN chown nginx:nginx /var/www/html/src/storage/logs/*
+RUN chown nginx:nginx /var/www/html/src/storage/app/examples/response
 RUN cd /var/www/html/src && composer update && composer dump-autoload -o
 
 EXPOSE 8010
