@@ -177,7 +177,7 @@ class ExampleService
     protected function getTransport(): Collection
     {
         $data = collect();
-        $path = storage_path('app/examples/response/twins_transport.json');
+        $path = storage_path(self::REQUEST_MOCKED_PATH . '.twins/transport.json');
 
         if (file_exists($path)) {
             $contents = file_get_contents($path);

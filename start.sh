@@ -19,6 +19,7 @@ for DIR in \
 	/var/www/html/src/storage/app/public \
 	/var/www/html/src/storage/app/examples \
 	/var/www/html/src/storage/app/examples/response \
+	/var/www/html/src/storage/app/examples/response/.twins \
 	/var/www/html/src/storage/framework \
 	/var/www/html/src/storage/framework/cache \
 	/var/www/html/src/storage/framework/cache/data \

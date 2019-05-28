@@ -67,5 +67,5 @@ EXPOSE 8010
 WORKDIR /var/www
 
 CMD ["/start.sh"]
-RUN mkdir --parents /var/www/html/src/storage/app/examples/response
-RUN chown nginx:nginx /var/www/html/src/storage/app/examples/response
+RUN mkdir --parents /var/www/html/src/storage/app/examples/response/.twins
+RUN chown nginx:nginx /var/www/html/src/storage/app/examples/response/.twins
