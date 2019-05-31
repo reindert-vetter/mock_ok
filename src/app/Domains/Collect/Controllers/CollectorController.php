@@ -42,7 +42,10 @@ class CollectorController
         RequestProvider $requestProvider
     ): Response {
         $request = RequestHelper::normalizeRequest($request);
-        $this->logRequest($psrRequest);
+        try {
+            $this->logRequest($psrRequest);
+        } catch (\Exception $exception) {
+        }
 
         if ($result = $this->exampleService->tryExample($request)) {
             return $result;
@@ -56,7 +59,10 @@ class CollectorController
             $request->headers->all()
         );
 
-        $this->exampleService->saveExample($request, $clientResponse);
+        try {
+            $this->exampleService->saveExample($request, $clientResponse);
+        } catch (\Exception $exception) {
+        }
 
         $result = new ConsumerResponse(
             (string) $clientResponse->getBody(),

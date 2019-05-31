@@ -15,7 +15,7 @@ use Psr\Http\Message\ResponseInterface;
 
 class ExampleService
 {
-    const REQUEST_MOCKED_PATH = 'examples/response/';
+    const REQUEST_MOCKED_PATH = 'app/examples/response/';
 
     /**
      * @param \Illuminate\Http\Request            $consumerRequest
