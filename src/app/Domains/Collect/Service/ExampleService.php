@@ -15,7 +15,8 @@ use Psr\Http\Message\ResponseInterface;
 
 class ExampleService
 {
-    const REQUEST_MOCKED_PATH = 'app/examples/response/';
+    const REQUEST_MOCKED_PATH_APP = 'examples/response/';
+    const REQUEST_MOCKED_PATH = 'app/' . self::REQUEST_MOCKED_PATH_APP;
 
     /**
      * @param \Illuminate\Http\Request            $consumerRequest
@@ -67,7 +68,8 @@ class ExampleService
                     return false;
                 }
 
-                $mockPath = base_path('storage/app/' . $path);
+                $mockPath = storage_path($path);
+
                 exec("php -l {$mockPath}", $output, $return);
 
                 if ($return !== 0) {
@@ -96,9 +98,11 @@ class ExampleService
 
         $path = $matchExamples->first();
 
+        Log::debug("Mock found: $path");
+
         /** @noinspection PhpUnusedLocalVariableInspection */
         $transport = $this->getTransport();
-        $mock      = require(storage_path('app/' . $path));
+        $mock      = require(storage_path($path));
 
         $mockedResponse = call_user_func($mock['response'], $transport);
         $response  = new Response(
@@ -115,9 +119,13 @@ class ExampleService
      */
     private function getExamples(): Collection
     {
-        $dir = self::REQUEST_MOCKED_PATH;
+        $dir = self::REQUEST_MOCKED_PATH_APP;
 
         $files = collect(Storage::allFiles($dir));
+
+        $files->transform(function ($path) {
+            return 'app/' . $path;
+        });
 
         return $files;
     }
@@ -169,7 +177,7 @@ class ExampleService
         $fileName = $consumerRequest->method() . '_' . $this->getSlug(pathinfo($consumerRequest->getUri())['basename']);
         $fileName = substr($fileName, 0, 100);
 
-        $path     = self::REQUEST_MOCKED_PATH . "$service/$fileName$suffix.inc";
+        $path     = self::REQUEST_MOCKED_PATH_APP . "$service/$fileName$suffix.inc";
 
         return $path;
     }
