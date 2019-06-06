@@ -59,15 +59,13 @@ sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" \
 /etc/php7/php-fpm.d/www.conf
 
 COPY . /var/www/html
-RUN chown nginx:nginx /var/www/html/src/storage/framework/*
-RUN chown nginx:nginx /var/www/html/src/storage/logs
-RUN mkdir --parents /var/www/html/src/storage/app/examples/response
-RUN chown nginx:nginx /var/www/html/src/storage/app/examples/response
-RUN mkdir --parents /var/www/html/src/storage/app/examples/response/.twins
-RUN chown nginx:nginx /var/www/html/src/storage/app/examples/response/.twins
+#RUN chown nginx:nginx /var/www/html/src/storage/framework/*
+#RUN chown nginx:nginx /var/www/html/src/storage/logs
 RUN cd /var/www/html/src && composer update && composer dump-autoload -o
 
 EXPOSE 8010
 WORKDIR /var/www
 
 CMD ["/start.sh"]
+RUN mkdir --parents /var/www/html/src/storage/app/examples/response/.twins
+RUN chown nginx:nginx /var/www/html/src/storage/app/examples/response/.twins
