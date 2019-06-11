@@ -63,7 +63,10 @@ COPY . /var/www/html
 #RUN chown nginx:nginx /var/www/html/src/storage/logs
 RUN mkdir --parents /var/www/html/src/storage/app/examples/response
 RUN chown nginx:nginx /var/www/html/src/storage/app/examples/response
-RUN cd /var/www/html/src && composer update && composer dump-autoload -o
+RUN touch /var/www/html/src/storage/app/examples/response/twins_debug.log
+RUN touch /var/www/html/src/storage/app/examples/response/twins_transport.json
+RUN chown nginx:nginx /var/www/html/src/storage/app/examples/response/*
+RUN cd /var/www/html/src && composer install && composer dump-autoload -o
 
 EXPOSE 8010
 WORKDIR /var/www
