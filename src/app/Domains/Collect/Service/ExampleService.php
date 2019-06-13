@@ -153,7 +153,8 @@ class ExampleService
     {
         $value = Str::snake($value);
         return Str::slug(
-            trim(str_replace(['.', '/', '?', '=', '&', 'https', 'http', 'www', 'api.', '/api'], '_', $value), '_')
+            trim(str_replace(['.', '/', '?', '=', '&', 'https', 'http', 'www', 'api.', '/api'], '_', $value), '_'),
+            '_'
         );
     }
 
