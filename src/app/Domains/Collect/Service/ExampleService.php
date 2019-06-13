@@ -165,7 +165,7 @@ class ExampleService
     private function getFilePath(Request $consumerRequest, string $suffix = ''): string
     {
         preg_match('/(?<service>[\w-]+).\w{2,10}$/', $consumerRequest->getHost(), $match);
-        $service  = Str::kebab($match['service']);
+        $service  = Str::snake($match['service']);
         $fileName = $consumerRequest->method() . '_' . $this->getSlug(pathinfo($consumerRequest->getUri())['basename']);
         $fileName = substr($fileName, 0, 100);
 
