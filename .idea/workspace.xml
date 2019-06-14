@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="db0d632f-a6c2-4478-875e-39e55bd4ad03" name="Default Changelist" comment="Log default in example">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Domains/Collect/Service/ExampleService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Domains/Collect/Service/ExampleService.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -147,78 +146,6 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="twins" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/Domains/Collect/Controllers/CollectorController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="58" column="37" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/views/body-template.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/Domains/Collect/Service/ExampleService.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="141" column="25" lean-forward="true" selection-start-line="141" selection-start-column="25" selection-end-line="141" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Http/Response.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/storage/app/examples/response/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="9" selection-start-column="9" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vendor/namshi/cuzzle/src/Formatter/CurlFormatter.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="740">
-              <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/storage/app/examples/response/debug.log">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/config/logging.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -458,119 +385,22 @@
               <item name="twins" type="b2602c69:ProjectViewProjectNode" />
               <item name="twins" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="twins" type="b2602c69:ProjectViewProjectNode" />
               <item name="twins" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Domains" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="beyondcode" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="twins" type="b2602c69:ProjectViewProjectNode" />
               <item name="twins" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Domains" type="462c0819:PsiDirectoryNode" />
-              <item name="Collect" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Domains" type="462c0819:PsiDirectoryNode" />
-              <item name="Collect" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Domains" type="462c0819:PsiDirectoryNode" />
-              <item name="Collect" type="462c0819:PsiDirectoryNode" />
-              <item name="Helpers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Domains" type="462c0819:PsiDirectoryNode" />
-              <item name="Collect" type="462c0819:PsiDirectoryNode" />
-              <item name="Providers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Domains" type="462c0819:PsiDirectoryNode" />
-              <item name="Collect" type="462c0819:PsiDirectoryNode" />
-              <item name="Service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="response" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="response" type="462c0819:PsiDirectoryNode" />
-              <item name="myparcel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="beyondcode" type="462c0819:PsiDirectoryNode" />
+              <item name="laravel-dump-server" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1063,7 +893,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="203778000" />
+    <option name="totallyTimeSpent" value="203964000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1075,11 +905,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1280" y="897" width="1080" height="777" extended-state="0" />
+    <frame x="0" y="23" width="2304" height="1273" extended-state="6" />
     <layout>
       <window_info id="Structure" order="0" show_stripe_button="false" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="1" show_stripe_button="false" sideWeight="0.50151056" side_tool="true" weight="0.18739903" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.48596752" visible="true" weight="0.2947977" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.48596752" weight="0.2947977" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.328" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.40483382" />
@@ -1349,11 +1179,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/storage/app/examples/response/myparcel/GET_delivery-options.inc" />
-    <entry file="file://$PROJECT_DIR$/src/storage/app/examples/response/myparcel/GET_delivery-options-test.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-174" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/storage/app/examples/response/myparcel/GET_delivery-options-test.inc" />
     <entry file="file://$PROJECT_DIR$/src/app/Domains/Collect/Helpers/RequestHelper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -1409,13 +1235,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/storage/logs/laravel-2019-05-22.log" />
-    <entry file="file://$PROJECT_DIR$/src/storage/app/examples/response/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" selection-start-column="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/storage/app/examples/response/.gitignore" />
     <entry file="file://$PROJECT_DIR$/src/vendor/namshi/cuzzle/src/Formatter/CurlFormatter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="740">
@@ -1423,9 +1243,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/storage/app/examples/response/debug.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/storage/app/examples/response/debug.log" />
     <entry file="file://$PROJECT_DIR$/src/config/logging.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
