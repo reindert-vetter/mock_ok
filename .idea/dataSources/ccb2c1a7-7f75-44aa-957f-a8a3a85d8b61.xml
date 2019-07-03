@@ -13,8 +13,8 @@
       <Visible>1</Visible>
       <Relations>sequence|table|24638|24640|1
 sequence|table|24649|24651|1
-sequence|table|24610|24612|1
 sequence|table|24618|24620|1
+sequence|table|24610|24612|1
 </Relations>
     </database>
     <database id="3" parent="1" name="laradock_gitlab">
