@@ -32,10 +32,6 @@ class RequestProvider
         array $headers
     ): ResponseInterface {
         $client  = new Client(["http_errors" => false]);
-        unset($headers['content-length']);
-        unset($headers['Content-length']);
-        unset($headers['Content-Length']);
-        unset($headers['transfer-encoding']);
         $options = [
             'headers' => $headers,
             'query'   => $query,
