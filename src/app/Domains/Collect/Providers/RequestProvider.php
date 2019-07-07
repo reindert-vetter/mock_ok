@@ -32,6 +32,7 @@ class RequestProvider
         array $headers
     ): ResponseInterface {
         $client  = new Client(["http_errors" => false]);
+        $headers = $this->cleanHeaders($headers);
         $options = [
             'headers' => $headers,
             'query'   => $query,
@@ -49,5 +50,18 @@ class RequestProvider
         }
 
         return $result;
+    }
+
+    /**
+     * @param array $headers
+     * @return array
+     */
+    private function cleanHeaders(array $headers): array
+    {
+        unset($headers['content-length']);
+        unset($headers['Content-length']);
+        unset($headers['Content-Length']);
+
+        return $headers;
     }
 }
