@@ -61,10 +61,10 @@ sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" \
 COPY . /var/www/html
 RUN chown nginx:nginx /var/www/html/src/storage/framework/*
 RUN chown nginx:nginx /var/www/html/src/storage/logs
-RUN mkdir --parents /var/www/html/src/storage/app/examples/response
-RUN chown nginx:nginx /var/www/html/src/storage/app/examples/response
-RUN mkdir --parents /var/www/html/src/storage/app/examples/response/.twins
-RUN chown nginx:nginx /var/www/html/src/storage/app/examples/response/.twins
+RUN mkdir --parents /var/www/html/src/storage/app/mocks/response
+RUN chown nginx:nginx /var/www/html/src/storage/app/mocks/response
+RUN mkdir --parents /var/www/html/src/storage/app/mocks/response/.twins
+RUN chown nginx:nginx /var/www/html/src/storage/app/mocks/response/.twins
 RUN cd /var/www/html/src && composer update && composer dump-autoload -o
 
 EXPOSE 8010

@@ -1,6 +1,6 @@
 <?php
 
-use App\Domains\Collect\Service\ExampleService;
+use App\Domains\Collect\Service\MockService;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
 
@@ -42,7 +42,7 @@ return [
 
         'single' => [
             'driver' => 'single',
-            'path' => storage_path(ExampleService::REQUEST_MOCKED_PATH . '.twins/debug.log'),
+            'path' => storage_path(MockService::REQUEST_MOCKED_PATH_APP . '.twins/debug.log'),
             'level' => 'debug',
         ],
 

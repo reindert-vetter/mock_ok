@@ -129,7 +129,7 @@ And you can get the variable in your response with `$transport->get('product_nam
 ## Tips
 ### Debug:
 You can debug the Twins requests in the `twins_debug.log` file (in your mock directory).
-> \External\Providers\TwinsClient::activate() empties `twins_debug.log`. This file should be ignored by git.
+> You can use Laravel `logger()` helper to log your data to `twins_debug.log`.
 
 ### Format
 Use your idea to reformat the mocks correctly.

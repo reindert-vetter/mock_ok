@@ -5,7 +5,7 @@ namespace App\Domains\Collect\Controllers;
 
 use App\Domains\Collect\Helpers\RequestHelper;
 use App\Domains\Collect\Providers\RequestProvider;
-use App\Domains\Collect\Service\ExampleService;
+use App\Domains\Collect\Service\MockService;
 use Illuminate\Http\Request as LaravelRequest;
 use Illuminate\Http\Response as ConsumerResponse;
 use Illuminate\Http\Response;
@@ -19,13 +19,13 @@ use Psr\Http\Message\ServerRequestInterface;
 class CollectorController
 {
     /**
-     * @var ExampleService
+     * @var MockService
      */
-    private $exampleService;
+    private $mockService;
 
-    public function __construct(ExampleService $exampleService)
+    public function __construct(MockService $mockService)
     {
-        $this->exampleService = $exampleService;
+        $this->mockService = $mockService;
     }
 
     /**
@@ -44,7 +44,7 @@ class CollectorController
         $request = RequestHelper::normalizeRequest($request);
         $this->logRequest($psrRequest);
 
-        if ($result = $this->exampleService->tryExample($request)) {
+        if ($result = $this->mockService->tryMock($request)) {
             return $result;
         }
 
@@ -56,7 +56,7 @@ class CollectorController
             $request->headers->all()
         );
 
-        $this->exampleService->saveExample($request, $clientResponse);
+        $this->mockService->saveMock($request, $clientResponse);
 
         $result = new ConsumerResponse(
             (string) $clientResponse->getBody(),

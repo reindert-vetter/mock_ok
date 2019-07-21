@@ -13,17 +13,17 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Psr\Http\Message\ResponseInterface;
 
-class ExampleService
+class MockService
 {
-    const REQUEST_MOCKED_PATH_APP = 'examples/response/';
-    const REQUEST_MOCKED_PATH = 'app/' . self::REQUEST_MOCKED_PATH_APP;
+    const REQUEST_MOCKED_PATH     = 'mocks/response/';
+    const REQUEST_MOCKED_PATH_APP = 'app/' . self::REQUEST_MOCKED_PATH;
 
     /**
      * @param \Illuminate\Http\Request            $consumerRequest
      * @param \Psr\Http\Message\ResponseInterface $clientResponse
      * @throws \Throwable
      */
-    public function saveExample(Request $consumerRequest, ResponseInterface $clientResponse): void
+    public function saveMock(Request $consumerRequest, ResponseInterface $clientResponse): void
     {
         $responseBody = (string) $clientResponse->getBody();
         $langIde      = Json::isJson($responseBody) ? 'JSON' : 'XML';
@@ -58,11 +58,11 @@ class ExampleService
      * @return \Illuminate\Http\Response
      * @throws Exception
      */
-    public function tryExample(Request $consumerRequest): ?Response
+    public function tryMock(Request $consumerRequest): ?Response
     {
-        $examples = $this->getExamples();
+        $mocks = $this->getMocks();
 
-        $matchExamples = $examples->filter(
+        $matchedMocks = $mocks->filter(
             function ($path) use ($consumerRequest) {
                 if (false === strpos($path, '.inc')) {
                     return false;
@@ -87,16 +87,16 @@ class ExampleService
             }
         );
 
-        if ($matchExamples->isEmpty()) {
+        if ($matchedMocks->isEmpty()) {
             return null;
         }
 
-        if ($matchExamples->count() > 1) {
-            $pathExamples = str_replace(base_path() . self::REQUEST_MOCKED_PATH, '', $matchExamples->pluck('path')->implode(", \n"));
-            throw new Exception("Multiple examples have a match: \n" . $pathExamples);
+        if ($matchedMocks->count() > 1) {
+            $pathMocks = str_replace(base_path() . self::REQUEST_MOCKED_PATH_APP, '', $matchedMocks->pluck('path')->implode(", \n"));
+            throw new Exception("Multiple mocks have a match: \n" . $pathMocks);
         }
 
-        $path = $matchExamples->first();
+        $path = $matchedMocks->first();
 
         Log::debug("Mock found: $path");
 
@@ -117,9 +117,9 @@ class ExampleService
     /**
      * @return Collection
      */
-    private function getExamples(): Collection
+    private function getMocks(): Collection
     {
-        $dir = self::REQUEST_MOCKED_PATH_APP;
+        $dir = self::REQUEST_MOCKED_PATH;
 
         $files = collect(Storage::allFiles($dir));
 
@@ -177,15 +177,18 @@ class ExampleService
         $fileName = $consumerRequest->method() . '_' . $this->getSlug(pathinfo($consumerRequest->getUri())['basename']);
         $fileName = substr($fileName, 0, 100);
 
-        $path     = self::REQUEST_MOCKED_PATH_APP . "$service/$fileName$suffix.inc";
+        $path     = self::REQUEST_MOCKED_PATH . "$service/$fileName$suffix.inc";
 
         return $path;
     }
 
+    /**
+     * @return Collection
+     */
     protected function getTransport(): Collection
     {
         $data = collect();
-        $path = storage_path(self::REQUEST_MOCKED_PATH . '.twins/transport.json');
+        $path = storage_path(self::REQUEST_MOCKED_PATH_APP . '.twins/transport.json');
 
         if (file_exists($path)) {
             $contents = file_get_contents($path);
