@@ -35,7 +35,7 @@ return [
     'when' => function (Request $request): bool {
         return
             $request->isMethod('GET') &&
-            preg_match('#^https?\://api.webshop.nl/products/1#', $request->fullUrl());
+            preg_match('#^https?\://api.webshop.com/products/1#', $request->fullUrl());
     },
 
     'response' => function (Collection $transport): array {
@@ -72,10 +72,9 @@ return [
     'when' => function (Request $request): bool {
         return
             $request->isMethod('GET') &&
-            preg_match('#^https?\://api.webshop.nl/products/1#', $request->fullUrl());
+            preg_match('#^https?\://api.webshop.com/products/1#', $request->fullUrl());
     },
 ```
-> You can make your `when` clean and structured by not making your regex too long.
 
 ### Response
 You can determine yourself what your response should be. You can define what the status, headers and body should be.
@@ -129,11 +128,14 @@ And you can get the variable in your response with `$transport->get('product_nam
 
 ## Tips
 ### Debug:
-You can debug the last Twins requests in de `twins_debug.log` file (in your mock directory).
+You can debug the Twins requests in the `twins_debug.log` file (in your mock directory).
 > \External\Providers\TwinsClient::activate() empties `twins_debug.log`. This file should be ignored by git.
 
 ### Format
 Use your idea to reformat the mocks correctly.
+
+### Mocks from scratch
+Twins automatically creates mocks for you. But of course you can also design your own mocks from scratch.
 
 ## Installation
 
@@ -141,10 +143,29 @@ Use your idea to reformat the mocks correctly.
 You need to run Docker and you need to have knowledge about connecting a volume with your project.
 
 ### Connect the docker volume
-[...]
+Connect Twins container to a volume.
+```yaml
+  twins:
+    image: reindertvetter/twins:latest
+    volumes:
+      - "twins_mocks:/var/www/html/src/storage/app/mocks/response"
+    environment:
+      ENVIRONMENT: "test"
+```
+Depend your project on the Twins container (take the following as an mock):
+```yaml
+  your_project:
+    image: your_php_project_image
+    (...)
+    depends_on:
+      - twins
+```
 
 ### Composer
 To install the Twins SDK into your project, simply use `$ composer require reindert-vetter/twins-sdk`
+
+### Config
+Be sure the twins.php config file is present and configure `mocks_path` in this file.
 
 ### Activate Twins
 You have to place `\External\Providers\TwinsClient::activate()` in your setUp() or bootstrap method so that Twins knows that a new test is starting.
