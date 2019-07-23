@@ -143,6 +143,8 @@ Twins automatically creates mocks for you. But of course you can also design you
 You need to run Docker and you need to have knowledge about connecting a volume with your project.
 
 ### Connect the docker volume
+The mocks must be shared between the mock directory in your project and the mock directory in the Twins container.
+
 Connect Twins container to a volume.
 ```yaml
   twins:
@@ -152,7 +154,7 @@ Connect Twins container to a volume.
     environment:
       ENVIRONMENT: "test"
 ```
-Depend your project on the Twins container (take the following as an mock):
+Depend your project on the Twins container (take the following as an example):
 ```yaml
   your_project:
     image: your_php_project_image
@@ -160,6 +162,20 @@ Depend your project on the Twins container (take the following as an mock):
     depends_on:
       - twins
 ```
+ To connect your volume with your local environment, you probably also need to add twins_mocks to your list of available volumes.
+```yaml
+volumes:
+  storage:
+  (...)
+  twins_mocks:
+    driver: local
+    driver_opts:
+      type: none
+      device: /path_to_your_local_project/test/mocks
+      o: bind
+```
+1. Run `docker-compose up`.
+1. You can check whether Twins volumes are set correctly. Run `curl "twins/google.nl"`. You should now see your first mock file in `/path_to_your_local_project/test/mocks`.
 
 ### Composer
 To install the Twins SDK into your project, simply use `$ composer require reindert-vetter/twins-sdk`
@@ -171,7 +187,8 @@ Be sure the twins.php config file is present and configure `mocks_path` in this 
 You have to place `\External\Providers\TwinsClient::activate()` in your setUp() or bootstrap method so that Twins knows that a new test is starting.
 
 ### Calling Twins
-Instead of making a call to an external server, you have to make a call to the Twins container. So you don't have to make a call to `api.facebook.com` but you have to make a call to `twins/api.facebook.com`. If you have configured Twins correctly, this will happen automatically. See `config/twins.php` to configure Twins correctly.
+Instead of making a call to an external server, you have to make a call to the Twins container. So you don't have to make a call to `api.facebook.com` but you have to make a call to `twins/api.facebook.com`. If you have configured Twins correctly, this will happen automatically. See `config/twins.php` to configure Twins correctly. To get an idea of ​​how simple Twins works, it's best to first try out a request with a Guzzle Client.
+> To get an idea how simple Twins works, I advise you to first mock a request that uses Guzzle Client.
 
 ## Contribute
 
