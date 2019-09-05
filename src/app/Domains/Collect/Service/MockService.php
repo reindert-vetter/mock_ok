@@ -69,15 +69,7 @@ class MockService
                 }
 
                 $mockPath = storage_path($path);
-
-                exec("php -l {$mockPath}", $output, $return);
-
-                if ($return !== 0) {
-                    Log::debug("Syntax errors found in $path");
-                    return false;
-                }
-
-                $mock      = require($mockPath);
+                $mock     = require($mockPath);
 
                 if (! is_array($mock) || empty($mock['when'])) {
                     return false;
