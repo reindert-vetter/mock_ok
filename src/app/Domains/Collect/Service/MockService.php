@@ -15,7 +15,7 @@ use Psr\Http\Message\ResponseInterface;
 
 class MockService
 {
-    const REQUEST_MOCKED_PATH     = 'mocks/response/';
+    const REQUEST_MOCKED_PATH     = 'examples/response/';
     const REQUEST_MOCKED_PATH_APP = 'app/' . self::REQUEST_MOCKED_PATH;
 
     /**
