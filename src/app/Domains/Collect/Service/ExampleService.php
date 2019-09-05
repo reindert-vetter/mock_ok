@@ -67,15 +67,7 @@ class ExampleService
                     return false;
                 }
 
-                $mockPath = base_path('storage/app/' . $path);
-                exec("php -l {$mockPath}", $output, $return);
-
-                if ($return !== 0) {
-                    Log::debug("Syntax errors found in $path");
-                    return false;
-                }
-
-                $mock      = require($mockPath);
+                $mock = require(base_path('storage/app/' . $path));
 
                 if (! is_array($mock) || empty($mock['when'])) {
                     return false;
